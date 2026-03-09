@@ -39,9 +39,9 @@ export default function CtaBanner() {
           <StarBorder
             as="a"
             href="#contato"
-            color="#5AC8FA"
-            speed="5s"
-            thickness={2}
+            color="#bf5af2"
+            speed="4s"
+            thickness={3}
             className="teste-cta-star"
           >
             Iniciar projeto

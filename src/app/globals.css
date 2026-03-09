@@ -312,15 +312,17 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.875rem 2rem;
-  background: #fff;
-  color: #0a0a0a;
+  background: linear-gradient(135deg, #bf5af2, transparent);
+  color: #fff;
   font-weight: 600;
   font-size: 0.9375rem;
   border-radius: 100px;
   border: none;
+  transition: all 0.3s ease;
 }
 .teste-cta-star:hover .inner-content {
-  background: #e8e8ed;
+  background: linear-gradient(135deg, #a845d9, rgba(191,90,242,0.1));
+  transform: scale(1.02);
 }
 .teste-cta-star.star-border-container {
   border-radius: 100px;

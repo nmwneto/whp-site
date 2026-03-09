@@ -44,48 +44,6 @@ export default function Hero() {
         )}
       </div>
 
-      {/* Nav */}
-      <nav
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '1.25rem 4rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}
-      >
-        <span
-          style={{
-            color: '#fff',
-            fontSize: '1.125rem',
-            fontWeight: 700,
-            letterSpacing: '-0.02em',
-          }}
-        >
-          WHP
-        </span>
-        <div style={{ display: 'flex', gap: '2rem' }}>
-          {['Home', 'Serviços', 'Projetos', 'Contato'].map((item) => (
-            <a
-              key={item}
-              href="#"
-              style={{
-                color: 'rgba(255,255,255,0.7)',
-                fontSize: '0.875rem',
-                fontWeight: 500,
-                textDecoration: 'none',
-                transition: 'color 0.25s ease',
-              }}
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      </nav>
-
       {/* Hero content */}
       <div
         style={{
@@ -96,7 +54,7 @@ export default function Hero() {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          minHeight: 'calc(100vh - 80px)',
+          minHeight: '100vh',
           padding: '0 4rem',
           gap: '1.5rem',
         }}
@@ -170,9 +128,9 @@ export default function Hero() {
           <StarBorder
             as="a"
             href="#contato"
-            color="#5AC8FA"
-            speed="5s"
-            thickness={2}
+            color="#bf5af2"
+            speed="4s"
+            thickness={3}
             className="teste-cta-star"
           >
             Iniciar projeto

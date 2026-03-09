@@ -21,14 +21,14 @@ const StarBorder = ({
       <div
         className="border-gradient-bottom"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 30%)`,
+          background: `radial-gradient(circle, ${color}, transparent 45%)`,
           animationDuration: speed
         }}
       ></div>
       <div
         className="border-gradient-top"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 30%)`,
+          background: `radial-gradient(circle, ${color}, transparent 45%)`,
           animationDuration: speed
         }}
       ></div>
