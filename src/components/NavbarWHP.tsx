@@ -13,8 +13,8 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
-import { ArrowUpRight, Menu } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const navigationData = [
   { title: 'Home', href: '#' },
@@ -23,6 +23,119 @@ const navigationData = [
   { title: 'Sobre', href: '#sobre' },
   { title: 'Contato', href: '#contato' },
 ];
+
+const servicesLinks = [
+  { title: 'Identidade de Marca', href: '/servicos/identidade-de-marca', color: '#0071e3' },
+  { title: 'Web Design & Dev', href: '/servicos/web-design-e-dev', color: '#34c759' },
+  { title: 'SEO & Conteúdo', href: '/servicos/seo-e-conteudo', color: '#ff9f0a' },
+  { title: 'Social Media & Performance', href: '/servicos/social-media-e-performance', color: '#bf5af2' },
+];
+
+function ServicesDropdown({ href }: { href: string }) {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  return (
+    <NavigationMenuItem
+      style={{ position: 'relative' }}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <a
+        href={href}
+        className="rounded-full px-4 py-2 text-sm font-medium transition"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.25rem',
+          color: open ? '#fff' : 'rgba(255,255,255,0.5)',
+          background: open ? 'rgba(255,255,255,0.06)' : 'transparent',
+          textDecoration: 'none',
+          cursor: 'pointer',
+        }}
+      >
+        Serviços
+        <ChevronDown
+          size={14}
+          style={{
+            transition: 'transform 0.2s ease',
+            transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+          }}
+        />
+      </a>
+
+      {open && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '100%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            paddingTop: '0.5rem',
+            zIndex: 100,
+          }}
+        >
+          <div
+            style={{
+              background: '#111',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '1rem',
+              padding: '0.5rem',
+              minWidth: '240px',
+              boxShadow: '0 16px 48px rgba(0,0,0,0.5)',
+            }}
+          >
+            {servicesLinks.map((service) => (
+              <a
+                key={service.title}
+                href={service.href}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  padding: '0.625rem 0.875rem',
+                  borderRadius: '0.625rem',
+                  textDecoration: 'none',
+                  transition: 'background 0.2s ease',
+                  color: 'rgba(255,255,255,0.7)',
+                  fontSize: '0.8125rem',
+                  fontWeight: 500,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.color = '#fff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
+                }}
+              >
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: service.color,
+                    flexShrink: 0,
+                  }}
+                />
+                {service.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </NavigationMenuItem>
+  );
+}
 
 export default function NavbarWHP() {
   const [sticky, setSticky] = useState(false);
@@ -88,28 +201,32 @@ export default function NavbarWHP() {
               className="flex gap-0 rounded-full p-0.5"
               style={{ background: 'rgba(255,255,255,0.04)' }}
             >
-              {navigationData.map((item) => (
-                <NavigationMenuItem key={item.title}>
-                  <NavigationMenuLink
-                    href={item.href}
-                    className="rounded-full px-4 py-2 text-sm font-medium transition"
-                    style={{
-                      color: 'rgba(255,255,255,0.5)',
-                      textDecoration: 'none',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = '#fff';
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = 'rgba(255,255,255,0.5)';
-                      e.currentTarget.style.background = 'transparent';
-                    }}
-                  >
-                    {item.title}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
+              {navigationData.map((item) =>
+                item.title === 'Serviços' ? (
+                  <ServicesDropdown key={item.title} href={item.href} />
+                ) : (
+                  <NavigationMenuItem key={item.title}>
+                    <NavigationMenuLink
+                      href={item.href}
+                      className="rounded-full px-4 py-2 text-sm font-medium transition"
+                      style={{
+                        color: 'rgba(255,255,255,0.5)',
+                        textDecoration: 'none',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = '#fff';
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = 'rgba(255,255,255,0.5)';
+                        e.currentTarget.style.background = 'transparent';
+                      }}
+                    >
+                      {item.title}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                )
+              )}
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -174,6 +291,23 @@ export default function NavbarWHP() {
                     </a>
                   </DropdownMenuItem>
                 ))}
+                <div style={{ padding: '0.375rem 0', margin: '0.25rem 0.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '0.375rem 0.5rem' }}>
+                    Serviços
+                  </p>
+                  {servicesLinks.map((service) => (
+                    <DropdownMenuItem key={service.title} className="cursor-pointer">
+                      <a
+                        href={service.href}
+                        className="w-full text-sm font-medium"
+                        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}
+                      >
+                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: service.color, flexShrink: 0 }} />
+                        {service.title}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
