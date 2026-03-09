@@ -2,11 +2,13 @@
 
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
+import { ArrowUpRight } from 'lucide-react';
 
 const services = [
   {
     title: 'Identidade Visual',
     description: 'Logotipos, paletas, tipografia e guidelines que traduzem a essência da sua marca em cada ponto de contato.',
+    href: '/servicos/identidade-de-marca',
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -20,6 +22,7 @@ const services = [
   {
     title: 'Web Design & Dev',
     description: 'Sites de alta performance com design único, responsivos, otimizados e construídos com tecnologia de ponta.',
+    href: '/servicos/web-design-e-dev',
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6" />
@@ -30,8 +33,9 @@ const services = [
     accentColor: '#34c759',
   },
   {
-    title: 'SEO & Performance',
+    title: 'SEO & Conteúdo',
     description: 'Estratégias de otimização para motores de busca que colocam a sua marca nas primeiras posições do Google.',
+    href: '/servicos/seo-e-conteudo',
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" />
@@ -43,8 +47,9 @@ const services = [
     accentColor: '#ff9f0a',
   },
   {
-    title: 'Social Media',
+    title: 'Social Media & Performance',
     description: 'Gestão de redes sociais com conteúdo estratégico, design consistente e análise de métricas para crescimento real.',
+    href: '/servicos/social-media-e-performance',
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
@@ -82,26 +87,30 @@ export default function Services() {
 
       <div className="mx-auto grid max-w-[1100px] gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
         {services.map((service) => (
-          <SpotlightCard
-            key={service.title}
-            spotlightColor={service.spotlightColor}
-            className="services-card"
-          >
-            <div
-              className="services-card__icon"
-              style={{ color: service.accentColor }}
+          <a key={service.title} href={service.href} style={{ textDecoration: 'none' }}>
+            <SpotlightCard
+              spotlightColor={service.spotlightColor}
+              className="services-card"
             >
-              {service.icon}
-            </div>
-            <h3
-              className="mt-5 text-lg font-semibold tracking-[-0.02em] text-white"
-            >
-              {service.title}
-            </h3>
-            <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
-              {service.description}
-            </p>
-          </SpotlightCard>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div
+                  className="services-card__icon"
+                  style={{ color: service.accentColor }}
+                >
+                  {service.icon}
+                </div>
+                <ArrowUpRight size={18} style={{ color: 'rgba(255,255,255,0.2)', transition: 'color 0.3s ease' }} />
+              </div>
+              <h3
+                className="mt-5 text-lg font-semibold tracking-[-0.02em] text-white"
+              >
+                {service.title}
+              </h3>
+              <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
+                {service.description}
+              </p>
+            </SpotlightCard>
+          </a>
         ))}
       </div>
     </section>
