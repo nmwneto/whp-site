@@ -7,30 +7,72 @@ import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 
+const ACCENT = '#bf5af2';
+
 const deliverables = [
   {
     title: 'Estratégia de Conteúdo Social',
     description: 'Planejamento de conteúdo alinhado ao posicionamento da marca, com calendário editorial e pilares temáticos.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
   },
   {
     title: 'Design de Posts & Stories',
     description: 'Criação de peças visuais com identidade consistente para feed, stories, reels e carrosséis.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
+      </svg>
+    ),
   },
   {
     title: 'Gestão de Comunidade',
     description: 'Monitoramento e interação com a audiência, respondendo comentários e mensagens de forma estratégica.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
   },
   {
     title: 'Tráfego Pago (Ads)',
     description: 'Campanhas no Meta Ads e Google Ads com segmentação precisa, criativos otimizados e gestão de orçamento.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23" />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    ),
   },
   {
     title: 'Análise de Métricas',
     description: 'Relatórios detalhados com KPIs de alcance, engajamento, conversões e ROI de cada canal e campanha.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+        <path d="M22 12A10 10 0 0 0 12 2v10z" />
+      </svg>
+    ),
   },
   {
     title: 'Growth & Otimização',
     description: 'Testes A/B, otimização de criativos e ajustes contínuos baseados em dados para maximizar resultados.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+        <polyline points="17 6 23 6 23 12" />
+      </svg>
+    ),
   },
 ];
 
@@ -78,7 +120,7 @@ export default function SocialMediaPerformancePage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#bf5af2',
+              color: ACCENT,
             }}
           >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -86,7 +128,7 @@ export default function SocialMediaPerformancePage() {
             </svg>
           </div>
 
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#bf5af2]">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
             Serviço
           </p>
           <BlurText
@@ -122,7 +164,7 @@ export default function SocialMediaPerformancePage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {['Presença consistente nas plataformas certas', 'Conteúdo que engaja e converte', 'Campanhas pagas com ROI comprovado', 'Decisões baseadas em dados reais'].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#bf5af2', flexShrink: 0 }} />
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: ACCENT, flexShrink: 0 }} />
                 <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9375rem' }}>{item}</span>
               </div>
             ))}
@@ -155,7 +197,13 @@ export default function SocialMediaPerformancePage() {
                 spotlightColor="rgba(191,90,242,0.2)"
                 className="services-card"
               >
-                <h3 className="text-base font-semibold tracking-[-0.02em] text-white">
+                <div
+                  className="services-card__icon"
+                  style={{ color: ACCENT }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
@@ -236,7 +284,7 @@ export default function SocialMediaPerformancePage() {
               { step: '04', title: 'Performance & Growth', desc: 'Campanhas pagas, análise de métricas, testes A/B e otimização contínua para crescimento.' },
             ].map((item) => (
               <div key={item.step} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-                <span style={{ color: '#bf5af2', fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
+                <span style={{ color: ACCENT, fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
                   {item.step}
                 </span>
                 <div>
@@ -267,10 +315,10 @@ export default function SocialMediaPerformancePage() {
           <StarBorder
             as="a"
             href="/#contato"
-            color="#bf5af2"
+            color={ACCENT}
             speed="4s"
             thickness={3}
-            className="teste-cta-star"
+            className="teste-cta-star cta-purple"
           >
             Iniciar projeto
           </StarBorder>

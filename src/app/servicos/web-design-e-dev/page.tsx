@@ -7,30 +7,74 @@ import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 
+const ACCENT = '#34c759';
+
 const deliverables = [
   {
     title: 'Design UI/UX',
     description: 'Interfaces intuitivas e visualmente impactantes, projetadas com foco na experiência do usuário e conversão.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <line x1="3" y1="9" x2="21" y2="9" />
+        <line x1="9" y1="21" x2="9" y2="9" />
+      </svg>
+    ),
   },
   {
     title: 'Desenvolvimento Front-end',
     description: 'Código limpo e performático com React, Next.js e tecnologias modernas que garantem velocidade e qualidade.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
   },
   {
     title: 'Responsividade Total',
     description: 'Sites que funcionam perfeitamente em todos os dispositivos — desktop, tablet e mobile.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" />
+      </svg>
+    ),
   },
   {
     title: 'CMS & Painel Admin',
     description: 'Integração com sistemas de gerenciamento de conteúdo para que você edite seu site com autonomia.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="4" y1="21" x2="4" y2="14" />
+        <line x1="4" y1="10" x2="4" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="12" />
+        <line x1="12" y1="8" x2="12" y2="3" />
+        <line x1="20" y1="21" x2="20" y2="16" />
+        <line x1="20" y1="12" x2="20" y2="3" />
+        <line x1="1" y1="14" x2="7" y2="14" />
+        <line x1="9" y1="8" x2="15" y2="8" />
+        <line x1="17" y1="16" x2="23" y2="16" />
+      </svg>
+    ),
   },
   {
     title: 'Performance & SEO Técnico',
     description: 'Otimização de velocidade, Core Web Vitals, meta tags e estrutura semântica para ranquear no Google.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
   },
   {
     title: 'Deploy & Hospedagem',
     description: 'Publicação em infraestrutura moderna com CDN global, SSL, CI/CD e monitoramento contínuo.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+      </svg>
+    ),
   },
 ];
 
@@ -78,7 +122,7 @@ export default function WebDesignDevPage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#34c759',
+              color: ACCENT,
             }}
           >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -87,7 +131,7 @@ export default function WebDesignDevPage() {
             </svg>
           </div>
 
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#34c759]">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
             Serviço
           </p>
           <BlurText
@@ -123,7 +167,7 @@ export default function WebDesignDevPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {['Carregamento ultrarrápido (< 2s)', 'Design que converte visitantes em clientes', 'SEO técnico desde o primeiro dia', 'Código escalável e de fácil manutenção'].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#34c759', flexShrink: 0 }} />
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: ACCENT, flexShrink: 0 }} />
                 <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9375rem' }}>{item}</span>
               </div>
             ))}
@@ -156,7 +200,13 @@ export default function WebDesignDevPage() {
                 spotlightColor="rgba(52,199,89,0.2)"
                 className="services-card"
               >
-                <h3 className="text-base font-semibold tracking-[-0.02em] text-white">
+                <div
+                  className="services-card__icon"
+                  style={{ color: ACCENT }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
@@ -237,7 +287,7 @@ export default function WebDesignDevPage() {
               { step: '04', title: 'Testes & Launch', desc: 'QA rigoroso em todos os dispositivos, otimização final e deploy em produção.' },
             ].map((item) => (
               <div key={item.step} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-                <span style={{ color: '#34c759', fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
+                <span style={{ color: ACCENT, fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
                   {item.step}
                 </span>
                 <div>
@@ -268,10 +318,10 @@ export default function WebDesignDevPage() {
           <StarBorder
             as="a"
             href="/#contato"
-            color="#34c759"
+            color={ACCENT}
             speed="4s"
             thickness={3}
-            className="teste-cta-star"
+            className="teste-cta-star cta-green"
           >
             Iniciar projeto
           </StarBorder>

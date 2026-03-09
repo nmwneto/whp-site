@@ -7,30 +7,78 @@ import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 
+const ACCENT = '#ff9f0a';
+
 const deliverables = [
   {
     title: 'Auditoria SEO Completa',
     description: 'Análise técnica profunda do site: crawlability, indexação, velocidade, Core Web Vitals e estrutura de URLs.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        <line x1="8" y1="11" x2="14" y2="11" />
+        <line x1="11" y1="8" x2="11" y2="14" />
+      </svg>
+    ),
   },
   {
     title: 'Pesquisa de Palavras-chave',
     description: 'Mapeamento de termos estratégicos com volume de busca, dificuldade e intenção para orientar todo o conteúdo.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+      </svg>
+    ),
   },
   {
     title: 'SEO On-page',
     description: 'Otimização de títulos, meta descriptions, headings, imagens, schema markup e estrutura semântica de cada página.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+        <polyline points="10 9 9 9 8 9" />
+      </svg>
+    ),
   },
   {
     title: 'Estratégia de Conteúdo',
     description: 'Planejamento editorial com calendário de publicações, temas, formatos e objetivos de cada conteúdo.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+        <line x1="8" y1="14" x2="8" y2="14.01" />
+        <line x1="12" y1="14" x2="12" y2="14.01" />
+        <line x1="16" y1="14" x2="16" y2="14.01" />
+        <line x1="8" y1="18" x2="8" y2="18.01" />
+        <line x1="12" y1="18" x2="12" y2="18.01" />
+      </svg>
+    ),
   },
   {
     title: 'Produção de Conteúdo',
     description: 'Textos otimizados para SEO com foco em E-E-A-T: experiência, expertise, autoridade e confiabilidade.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+      </svg>
+    ),
   },
   {
     title: 'Relatórios & Monitoramento',
     description: 'Dashboards com métricas de tráfego, posições, conversões e evolução mês a mês com insights acionáveis.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      </svg>
+    ),
   },
 ];
 
@@ -78,7 +126,7 @@ export default function SeoConteudoPage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#ff9f0a',
+              color: ACCENT,
             }}
           >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -88,7 +136,7 @@ export default function SeoConteudoPage() {
             </svg>
           </div>
 
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#ff9f0a]">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
             Serviço
           </p>
           <BlurText
@@ -124,7 +172,7 @@ export default function SeoConteudoPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {['Tráfego orgânico sustentável e escalável', 'Redução do custo de aquisição de clientes', 'Autoridade e confiança para sua marca', 'Resultados comprovados mês a mês'].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff9f0a', flexShrink: 0 }} />
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: ACCENT, flexShrink: 0 }} />
                 <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9375rem' }}>{item}</span>
               </div>
             ))}
@@ -157,7 +205,13 @@ export default function SeoConteudoPage() {
                 spotlightColor="rgba(255,159,10,0.2)"
                 className="services-card"
               >
-                <h3 className="text-base font-semibold tracking-[-0.02em] text-white">
+                <div
+                  className="services-card__icon"
+                  style={{ color: ACCENT }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
@@ -195,7 +249,7 @@ export default function SeoConteudoPage() {
               { step: '04', title: 'Análise & Iteração', desc: 'Monitoramento de resultados, relatórios mensais e ajustes contínuos na estratégia.' },
             ].map((item) => (
               <div key={item.step} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-                <span style={{ color: '#ff9f0a', fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
+                <span style={{ color: ACCENT, fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
                   {item.step}
                 </span>
                 <div>
@@ -226,10 +280,10 @@ export default function SeoConteudoPage() {
           <StarBorder
             as="a"
             href="/#contato"
-            color="#ff9f0a"
+            color={ACCENT}
             speed="4s"
             thickness={3}
-            className="teste-cta-star"
+            className="teste-cta-star cta-orange"
           >
             Iniciar projeto
           </StarBorder>

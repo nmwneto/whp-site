@@ -328,6 +328,32 @@
   border-radius: 100px;
 }
 
+/* Color variants for service pages */
+.teste-cta-star.cta-blue .inner-content {
+  background: linear-gradient(135deg, #0071e3, transparent);
+}
+.teste-cta-star.cta-blue:hover .inner-content {
+  background: linear-gradient(135deg, #005bb5, rgba(0,113,227,0.1));
+}
+.teste-cta-star.cta-green .inner-content {
+  background: linear-gradient(135deg, #34c759, transparent);
+}
+.teste-cta-star.cta-green:hover .inner-content {
+  background: linear-gradient(135deg, #2aa048, rgba(52,199,89,0.1));
+}
+.teste-cta-star.cta-orange .inner-content {
+  background: linear-gradient(135deg, #ff9f0a, transparent);
+}
+.teste-cta-star.cta-orange:hover .inner-content {
+  background: linear-gradient(135deg, #e08c00, rgba(255,159,10,0.1));
+}
+.teste-cta-star.cta-purple .inner-content {
+  background: linear-gradient(135deg, #bf5af2, transparent);
+}
+.teste-cta-star.cta-purple:hover .inner-content {
+  background: linear-gradient(135deg, #a845d9, rgba(191,90,242,0.1));
+}
+
 /* Hero nav */
 .hero-nav {
   position: relative;
