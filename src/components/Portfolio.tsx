@@ -45,7 +45,7 @@ export default function Portfolio() {
       id="projetos"
       style={{
         background:
-          'radial-gradient(ellipse 800px 500px at 80% 20%, rgba(0,113,227,0.07), transparent), radial-gradient(ellipse 700px 450px at 15% 75%, rgba(191,90,242,0.06), transparent), #0a0a0a',
+          'radial-gradient(ellipse 900px 600px at 80% 20%, rgba(0,113,227,0.10), transparent), radial-gradient(ellipse 800px 550px at 15% 75%, rgba(191,90,242,0.09), transparent), radial-gradient(ellipse 600px 400px at 50% 50%, rgba(52,199,89,0.05), transparent), #0a0a0a',
         padding: '7rem 4rem',
         borderTop: '1px solid rgba(255,255,255,0.06)',
       }}

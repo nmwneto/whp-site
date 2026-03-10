@@ -183,7 +183,7 @@ export default function NavbarWHP() {
         >
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             style={{
               fontSize: '1.125rem',
               fontWeight: 800,
