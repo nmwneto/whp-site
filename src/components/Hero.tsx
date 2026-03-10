@@ -14,39 +14,41 @@ function OrbitIcon({ label, color, bg, size = 28, pad = 10, children }: { label:
         position: 'relative',
         padding: pad,
         borderRadius: '50%',
-        background: bg,
+        background: hovered ? bg.replace('0.15', '0.4') : bg,
         cursor: 'pointer',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        transform: hovered ? 'scale(1.25)' : 'scale(1)',
-        boxShadow: hovered ? `0 0 20px ${color}40` : 'none',
+        pointerEvents: 'auto',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease',
+        transform: hovered ? 'scale(1.4)' : 'scale(1)',
+        boxShadow: hovered ? `0 0 24px ${color}50` : 'none',
+        opacity: hovered ? 4 : 1,
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {children}
-      {hovered && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '100%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            marginBottom: 8,
-            padding: '0.375rem 0.75rem',
-            background: '#111',
-            border: `1px solid ${color}30`,
-            borderRadius: '0.5rem',
-            whiteSpace: 'nowrap',
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: color,
-            boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
-            pointerEvents: 'none',
-          }}
-        >
-          {label}
-        </div>
-      )}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '100%',
+          left: '50%',
+          transform: `translateX(-50%) scale(${hovered ? 1 : 0.8})`,
+          marginBottom: 10,
+          padding: '0.4rem 0.85rem',
+          background: 'rgba(10,10,10,0.95)',
+          border: `1px solid ${color}40`,
+          borderRadius: '0.5rem',
+          whiteSpace: 'nowrap',
+          fontSize: '0.8125rem',
+          fontWeight: 600,
+          color: color,
+          boxShadow: `0 4px 20px rgba(0,0,0,0.5), 0 0 12px ${color}15`,
+          pointerEvents: 'none',
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.25s ease, transform 0.25s ease',
+        }}
+      >
+        {label}
+      </div>
     </div>
   );
 }
@@ -100,9 +102,9 @@ export default function Hero() {
             transform: 'translate(-50%, -50%)',
             width: '1000px',
             height: '1000px',
-            zIndex: 5,
+            zIndex: 15,
             opacity: 0.25,
-            pointerEvents: 'auto',
+            pointerEvents: 'none',
           }}
         >
           <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
