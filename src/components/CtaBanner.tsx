@@ -2,6 +2,7 @@
 
 import StarBorder from '@/components/StarBorder';
 import BlurText from '@/components/BlurText';
+import FadeIn from '@/components/FadeIn';
 
 export default function CtaBanner() {
   return (
@@ -13,7 +14,7 @@ export default function CtaBanner() {
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}
     >
-      <div
+      <FadeIn
         className="mx-auto max-w-[800px] flex flex-col items-center text-center"
         style={{ gap: '1.5rem' }}
       >
@@ -67,7 +68,7 @@ export default function CtaBanner() {
             Fale no WhatsApp
           </a>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

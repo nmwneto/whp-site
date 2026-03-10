@@ -1,6 +1,7 @@
 'use client';
 
 import LogoLoop from '@/components/LogoLoop';
+import FadeIn from '@/components/FadeIn';
 
 const logos = [
   { node: 'Next.js', title: 'Next.js' },
@@ -24,6 +25,7 @@ export default function Logos() {
         overflow: 'hidden',
       }}
     >
+      <FadeIn>
       <LogoLoop
         logos={logos}
         speed={80}
@@ -35,6 +37,7 @@ export default function Logos() {
         fadeOutColor="#0a0a0a"
         className="logos-loop"
       />
+      </FadeIn>
     </section>
   );
 }

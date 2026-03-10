@@ -5,6 +5,7 @@ import SpotlightCard from '@/components/SpotlightCard';
 import StarBorder from '@/components/StarBorder';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
+import FadeIn from '@/components/FadeIn';
 
 const values = [
   {
@@ -100,10 +101,19 @@ const teamMembers = [
     name: 'Lucas Zanatta',
     role: 'Engenheiro de Negócios',
     bio: 'Estrutura modelos de negócio e estratégias comerciais que conectam a visão criativa aos resultados de mercado.',
-    image: '/images/team/lucas.webp',
+    image: '/images/team/zanatta.webp',
     accentColor: '#5AC8FA',
     spotlightColor: 'rgba(90, 200, 250, 0.25)',
     social: { label: 'Lucas Zanatta', url: 'https://www.linkedin.com/' },
+  },
+  {
+    name: 'João Balzer',
+    role: 'Engenheiro de Dados',
+    bio: 'Transforma dados em insights acionáveis com pipelines robustos, analytics e inteligência orientada a resultados.',
+    image: '/images/team/balzer.webp',
+    accentColor: '#ff375f',
+    spotlightColor: 'rgba(255, 55, 95, 0.25)',
+    social: { label: 'João Balzer', url: 'https://www.linkedin.com/' },
   },
 ];
 
@@ -129,7 +139,7 @@ export default function SobrePage() {
           alignItems: 'center',
         }}
       >
-        <div className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <FadeIn className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#5AC8FA]">
             Sobre nós
           </p>
@@ -144,7 +154,7 @@ export default function SobrePage() {
             Somos uma agência de design e tecnologia que transforma marcas em referências digitais.
             Combinamos estratégia, criatividade e execução técnica para entregar resultados reais.
           </p>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Mission */}
@@ -155,7 +165,7 @@ export default function SobrePage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[1000px]" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+        <FadeIn className="mx-auto max-w-[1000px]" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
           <div>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
               Nossa missão
@@ -178,7 +188,7 @@ export default function SobrePage() {
               Queremos ser reconhecidos como a agência que empresas procuram quando precisam de mais do que bonito — precisam de resultados. Do branding ao código, entregamos soluções completas que fazem marcas crescerem de verdade.
             </p>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Values */}
@@ -189,7 +199,7 @@ export default function SobrePage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[1100px]">
+        <FadeIn className="mx-auto max-w-[1100px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
               Valores
@@ -210,7 +220,7 @@ export default function SobrePage() {
               </SpotlightCard>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Timeline */}
@@ -221,7 +231,7 @@ export default function SobrePage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[700px]">
+        <FadeIn className="mx-auto max-w-[700px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
               Trajetória
@@ -265,7 +275,7 @@ export default function SobrePage() {
               ))}
             </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Team */}
@@ -276,7 +286,7 @@ export default function SobrePage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[1100px]">
+        <FadeIn className="mx-auto max-w-[1100px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
               Quem faz acontecer
@@ -289,7 +299,7 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
+          <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {teamMembers.map((member) => (
               <SpotlightCard key={member.name} spotlightColor={member.spotlightColor} className="team-card">
                 <div
@@ -329,7 +339,7 @@ export default function SobrePage() {
               </SpotlightCard>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* CTA */}
@@ -340,7 +350,7 @@ export default function SobrePage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[600px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <FadeIn className="mx-auto max-w-[600px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-[-0.03em] text-white leading-[1.15]">
             Vamos trabalhar juntos?
           </h2>
@@ -377,7 +387,7 @@ export default function SobrePage() {
               Ver serviços
             </a>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <Footer />

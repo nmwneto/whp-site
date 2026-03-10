@@ -1,5 +1,7 @@
 'use client';
 
+import FadeIn from '@/components/FadeIn';
+
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Serviços', href: '/#servicos' },
@@ -68,7 +70,7 @@ export default function Footer() {
       }}
     >
       {/* Main content */}
-      <div
+      <FadeIn
         className="mx-auto max-w-[1100px]"
         style={{ padding: '4rem 4rem 3rem' }}
       >
@@ -279,7 +281,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-      </div>
+      </FadeIn>
 
       {/* Bottom bar */}
       <div

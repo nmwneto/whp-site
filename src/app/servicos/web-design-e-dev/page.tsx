@@ -3,6 +3,7 @@
 import BlurText from '@/components/BlurText';
 import StarBorder from '@/components/StarBorder';
 import SpotlightCard from '@/components/SpotlightCard';
+import FadeIn from '@/components/FadeIn';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
@@ -93,7 +94,7 @@ export default function WebDesignDevPage() {
           alignItems: 'center',
         }}
       >
-        <div className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <FadeIn className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <a
             href="/"
             style={{
@@ -144,7 +145,7 @@ export default function WebDesignDevPage() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.125rem', lineHeight: 1.7, maxWidth: 600 }}>
             Projetamos e desenvolvemos sites de alta performance com design único, código limpo e tecnologia de ponta.
           </p>
-        </div>
+        </FadeIn>
       </section>
 
       {/* About */}
@@ -184,37 +185,41 @@ export default function WebDesignDevPage() {
         }}
       >
         <div className="mx-auto max-w-[1100px]">
-          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Entregas
-            </p>
-            <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-              O que você recebe
-            </h2>
-          </div>
+          <FadeIn>
+            <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
+                Entregas
+              </p>
+              <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
+                O que você recebe
+              </h2>
+            </div>
+          </FadeIn>
 
-          <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-            {deliverables.map((item) => (
-              <SpotlightCard
-                key={item.title}
-                spotlightColor="rgba(52,199,89,0.2)"
-                className="services-card"
-              >
-                <div
-                  className="services-card__icon"
-                  style={{ color: ACCENT }}
+          <FadeIn delay={0.2}>
+            <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+              {deliverables.map((item) => (
+                <SpotlightCard
+                  key={item.title}
+                  spotlightColor="rgba(52,199,89,0.2)"
+                  className="services-card"
                 >
-                  {item.icon}
-                </div>
-                <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
-                  {item.description}
-                </p>
-              </SpotlightCard>
-            ))}
-          </div>
+                  <div
+                    className="services-card__icon"
+                    style={{ color: ACCENT }}
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
+                    {item.description}
+                  </p>
+                </SpotlightCard>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -308,7 +313,7 @@ export default function WebDesignDevPage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[600px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <FadeIn className="mx-auto max-w-[600px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-[-0.03em] text-white leading-[1.15]">
             Pronto para criar seu site?
           </h2>
@@ -325,7 +330,7 @@ export default function WebDesignDevPage() {
           >
             Iniciar projeto
           </StarBorder>
-        </div>
+        </FadeIn>
       </section>
 
       <Footer />

@@ -2,6 +2,7 @@
 
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
+import FadeIn from '@/components/FadeIn';
 
 const teamMembers = [
   {
@@ -44,10 +45,19 @@ const teamMembers = [
     name: 'Lucas Zanatta',
     role: 'Engenheiro de Negócios',
     bio: 'Estrutura modelos de negócio e estratégias comerciais que conectam a visão criativa aos resultados de mercado.',
-    image: '/images/team/lucas.webp',
+    image: '/images/team/zanatta.webp',
     accentColor: '#5AC8FA',
     spotlightColor: 'rgba(90, 200, 250, 0.25)',
     social: { label: 'Lucas Zanatta', url: 'https://www.linkedin.com/' },
+  },
+  {
+    name: 'João Balzer',
+    role: 'Engenheiro de Dados',
+    bio: 'Transforma dados em insights acionáveis com pipelines robustos, analytics e inteligência orientada a resultados.',
+    image: '/images/team/balzer.webp',
+    accentColor: '#ff375f',
+    spotlightColor: 'rgba(255, 55, 95, 0.25)',
+    social: { label: 'João Balzer', url: 'https://www.linkedin.com/' },
   },
 ];
 
@@ -60,7 +70,7 @@ export default function Team() {
         padding: '7rem 4rem',
       }}
     >
-      <div className="mx-auto max-w-[1100px] text-center" style={{ marginBottom: '3.5rem' }}>
+      <FadeIn className="mx-auto max-w-[1100px] text-center" style={{ marginBottom: '3.5rem' }}>
         <p
           className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]"
           style={{ marginBottom: '1rem' }}
@@ -78,11 +88,11 @@ export default function Team() {
           Uma equipa multidisciplinar unida por um objetivo: transformar marcas
           em referência através de design e tecnologia.
         </p>
-      </div>
+      </FadeIn>
 
-      <div
+      <FadeIn delay={0.2}
         className="mx-auto max-w-[1100px] grid gap-5"
-        style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}
+        style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
       >
         {teamMembers.map((member) => (
           <SpotlightCard
@@ -176,7 +186,7 @@ export default function Team() {
             </a>
           </SpotlightCard>
         ))}
-      </div>
+      </FadeIn>
     </section>
   );
 }

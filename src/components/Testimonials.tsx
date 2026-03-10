@@ -2,6 +2,7 @@
 
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
+import FadeIn from '@/components/FadeIn';
 
 const testimonials = [
   {
@@ -66,7 +67,7 @@ export default function Testimonials() {
     >
       <div className="mx-auto max-w-[1100px]">
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+        <FadeIn className="text-center" style={{ marginBottom: '3.5rem' }}>
           <p
             className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]"
             style={{ marginBottom: '1rem' }}
@@ -83,9 +84,10 @@ export default function Testimonials() {
           <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
             Resultados reais de marcas que confiaram no nosso trabalho.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Cards */}
+        <FadeIn delay={0.2}>
         <div
           className="mx-auto grid gap-5"
           style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
@@ -175,6 +177,7 @@ export default function Testimonials() {
             </SpotlightCard>
           ))}
         </div>
+        </FadeIn>
       </div>
     </section>
   );

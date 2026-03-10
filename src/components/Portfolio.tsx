@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import BlurText from '@/components/BlurText';
+import FadeIn from '@/components/FadeIn';
 
 const projects = [
   {
@@ -52,7 +53,7 @@ export default function Portfolio() {
     >
       <div className="mx-auto max-w-[1100px]">
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+        <FadeIn className="text-center" style={{ marginBottom: '3.5rem' }}>
           <p
             className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]"
             style={{ marginBottom: '1rem' }}
@@ -69,7 +70,7 @@ export default function Portfolio() {
           <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
             Conheça alguns dos trabalhos que entregamos para nossos clientes.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Grid */}
         <div

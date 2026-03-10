@@ -3,6 +3,7 @@
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
 import { ArrowUpRight } from 'lucide-react';
+import FadeIn from '@/components/FadeIn';
 
 const services = [
   {
@@ -69,7 +70,7 @@ export default function Services() {
         padding: '7rem 4rem',
       }}
     >
-      <div className="mx-auto max-w-[1100px] text-center" style={{ marginBottom: '3.5rem' }}>
+      <FadeIn className="mx-auto max-w-[1100px] text-center" style={{ marginBottom: '3.5rem' }}>
         <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
           O que fazemos
         </p>
@@ -83,9 +84,9 @@ export default function Services() {
         <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
           Soluções completas para marcas que querem se destacar no digital.
         </p>
-      </div>
+      </FadeIn>
 
-      <div className="mx-auto grid max-w-[1100px] gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+      <FadeIn delay={0.2} className="mx-auto grid max-w-[1100px] gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
         {services.map((service) => (
           <a key={service.title} href={service.href} style={{ textDecoration: 'none' }}>
             <SpotlightCard
@@ -112,7 +113,7 @@ export default function Services() {
             </SpotlightCard>
           </a>
         ))}
-      </div>
+      </FadeIn>
     </section>
   );
 }

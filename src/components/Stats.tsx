@@ -2,6 +2,7 @@
 
 import CountUp from '@/components/CountUp';
 import BlurText from '@/components/BlurText';
+import FadeIn from '@/components/FadeIn';
 
 const stats = [
   { value: 40, label: 'Projetos realizados' },
@@ -13,6 +14,7 @@ const tags = [
   { label: 'Criatividade', color: '#7c3aed', bg: 'rgba(124, 58, 237, 0.1)' },
   { label: 'Inovação', color: '#0071e3', bg: 'rgba(0, 113, 227, 0.1)' },
   { label: 'Estratégia', color: '#ff9f0a', bg: 'rgba(255, 159, 10, 0.1)' },
+  { label: 'Tecnologia', color: '#34c759', bg: 'rgba(52, 199, 89, 0.1)' },
 ];
 
 export default function Stats() {
@@ -23,7 +25,7 @@ export default function Stats() {
         padding: '7rem 4rem',
       }}
     >
-      <div className="mx-auto max-w-[1100px]">
+      <FadeIn className="mx-auto max-w-[1100px]">
         {/* Heading */}
         <div className="mx-auto text-center" style={{ maxWidth: '800px' }}>
           <BlurText
@@ -103,7 +105,7 @@ export default function Stats() {
             </div>
           ))}
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

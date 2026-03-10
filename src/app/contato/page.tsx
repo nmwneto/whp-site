@@ -5,6 +5,7 @@ import BlurText from '@/components/BlurText';
 import SpotlightCard from '@/components/SpotlightCard';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
+import FadeIn from '@/components/FadeIn';
 
 const contactChannels = [
   {
@@ -102,7 +103,7 @@ export default function ContatoPage() {
           alignItems: 'center',
         }}
       >
-        <div className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        <FadeIn className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#bf5af2]">
             Contato
           </p>
@@ -116,7 +117,7 @@ export default function ContatoPage() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.125rem', lineHeight: 1.7, maxWidth: 560 }}>
             Conte-nos sobre o seu projeto. Respondemos em até 24 horas com uma proposta personalizada.
           </p>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Contact channels */}
@@ -126,7 +127,7 @@ export default function ContatoPage() {
           padding: '3rem 4rem 5rem',
         }}
       >
-        <div className="mx-auto max-w-[1100px]">
+        <FadeIn className="mx-auto max-w-[1100px]">
           <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             {contactChannels.map((ch) => (
               <a key={ch.title} href={ch.href} target={ch.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
@@ -141,7 +142,7 @@ export default function ContatoPage() {
               </a>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Form + Info */}
@@ -152,7 +153,7 @@ export default function ContatoPage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[1100px]">
+        <FadeIn className="mx-auto max-w-[1100px]">
           {/* Form + WhatsApp CTA side by side */}
           <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '3rem', alignItems: 'start' }}>
             {/* Form */}
@@ -345,7 +346,7 @@ export default function ContatoPage() {
               </p>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <Footer />
