@@ -53,16 +53,16 @@ export default function Hero() {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '700px',
-            height: '700px',
+            width: '1000px',
+            height: '1000px',
             zIndex: 1,
-            opacity: 0.12,
+            opacity: 0.25,
             pointerEvents: 'none',
           }}
         >
           <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {/* Outer orbit — 4 service icons */}
-            <OrbitingCircleIcons radius={320} speed={0.4} path={false}>
+            <OrbitingCircleIcons radius={440} speed={0.4} path={false}>
               {/* Identidade — Layers */}
               <div style={{ padding: 10, borderRadius: '50%', background: 'rgba(0,113,227,0.15)' }}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -95,7 +95,7 @@ export default function Hero() {
             </OrbitingCircleIcons>
 
             {/* Inner orbit — secondary icons, reverse */}
-            <OrbitingCircleIcons radius={200} reverse speed={0.3} path={false}>
+            <OrbitingCircleIcons radius={280} reverse speed={0.3} path={false}>
               {/* Target */}
               <div style={{ padding: 8, borderRadius: '50%', background: 'rgba(90,200,250,0.15)' }}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5AC8FA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
