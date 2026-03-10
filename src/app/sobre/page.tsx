@@ -99,9 +99,10 @@ const teamMembers = [
 ];
 
 const milestones = [
-  { year: '2024', text: 'Fundação da WHP com foco em branding e design digital.' },
-  { year: '2025', text: 'Expansão para desenvolvimento web e SEO. Primeiros clientes recorrentes.' },
-  { year: '2026', text: 'Lançamento do serviço de Social Media & Performance. Crescimento acelerado.' },
+  { year: '2018', text: 'Fundação da WHP com foco em estratégia, design e tecnologia para marcas.' },
+  { year: '2019', text: 'Internacionalização dos trabalhos, atendendo clientes fora do Brasil.' },
+  { year: '2022', text: 'Conquista de clientes de grande porte, consolidando a atuação no mercado.' },
+  { year: '2026', text: 'Rebrand completo da marca — nova identidade visual, posicionamento e site.' },
 ];
 
 export default function SobrePage() {
