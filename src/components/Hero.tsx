@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Aurora from '@/components/Aurora';
 import StarBorder from '@/components/StarBorder';
 import SplitText from '@/components/SplitText';
+import { OrbitingCircleIcons } from '@/components/shadcn-space/orbiting-circles/orbiting-circles';
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -43,6 +44,92 @@ export default function Hero() {
           />
         )}
       </div>
+
+      {/* Orbiting service icons */}
+      {mounted && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '700px',
+            height: '700px',
+            zIndex: 1,
+            opacity: 0.12,
+            pointerEvents: 'none',
+          }}
+        >
+          <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Outer orbit — 4 service icons */}
+            <OrbitingCircleIcons radius={320} speed={0.4} path={false}>
+              {/* Identidade — Layers */}
+              <div style={{ padding: 10, borderRadius: '50%', background: 'rgba(0,113,227,0.15)' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              {/* Web — Code */}
+              <div style={{ padding: 10, borderRadius: '50%', background: 'rgba(52,199,89,0.15)' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34c759" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              {/* SEO — Chart */}
+              <div style={{ padding: 10, borderRadius: '50%', background: 'rgba(255,159,10,0.15)' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff9f0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+              </div>
+              {/* Social — Chat */}
+              <div style={{ padding: 10, borderRadius: '50%', background: 'rgba(191,90,242,0.15)' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bf5af2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </div>
+            </OrbitingCircleIcons>
+
+            {/* Inner orbit — secondary icons, reverse */}
+            <OrbitingCircleIcons radius={200} reverse speed={0.3} path={false}>
+              {/* Target */}
+              <div style={{ padding: 8, borderRadius: '50%', background: 'rgba(90,200,250,0.15)' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5AC8FA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+              {/* Trending */}
+              <div style={{ padding: 8, borderRadius: '50%', background: 'rgba(52,199,89,0.15)' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34c759" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </div>
+              {/* Zap */}
+              <div style={{ padding: 8, borderRadius: '50%', background: 'rgba(255,159,10,0.15)' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff9f0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              {/* Pen */}
+              <div style={{ padding: 8, borderRadius: '50%', background: 'rgba(0,113,227,0.15)' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                  <path d="M2 2l7.586 7.586" />
+                  <circle cx="11" cy="11" r="2" />
+                </svg>
+              </div>
+            </OrbitingCircleIcons>
+          </div>
+        </div>
+      )}
 
       {/* Hero content */}
       <div
