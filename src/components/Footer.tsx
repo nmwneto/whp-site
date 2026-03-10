@@ -1,11 +1,11 @@
 'use client';
 
 const navLinks = [
-  { label: 'Home', href: '#' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Home', href: '/' },
+  { label: 'Serviços', href: '/#servicos' },
+  { label: 'Projetos', href: '/#projetos' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Contato', href: '/contato' },
 ];
 
 const services = [

@@ -17,11 +17,11 @@ import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const navigationData = [
-  { title: 'Home', href: '#' },
-  { title: 'Serviços', href: '#servicos' },
-  { title: 'Projetos', href: '#projetos' },
-  { title: 'Sobre', href: '#sobre' },
-  { title: 'Contato', href: '#contato' },
+  { title: 'Home', href: '/' },
+  { title: 'Serviços', href: '/#servicos' },
+  { title: 'Projetos', href: '/#projetos' },
+  { title: 'Sobre', href: '/sobre' },
+  { title: 'Contato', href: '/contato' },
 ];
 
 const servicesLinks = [
@@ -232,7 +232,7 @@ export default function NavbarWHP() {
 
           {/* CTA */}
           <a
-            href="#contato"
+            href="/contato"
             className="hidden lg:flex"
             style={{
               display: 'inline-flex',
