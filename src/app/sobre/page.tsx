@@ -67,7 +67,7 @@ const teamMembers = [
     image: '/images/team/nelson.webp',
     accentColor: '#0071e3',
     spotlightColor: 'rgba(0, 113, 227, 0.25)',
-    social: { label: '@nelsonmozart', url: 'https://instagram.com/' },
+    social: { label: 'Nelson Mozart', url: 'https://www.linkedin.com/in/nmwneto/' },
   },
   {
     name: 'Braian C. Gomes',
@@ -76,7 +76,7 @@ const teamMembers = [
     image: '/images/team/braian.webp',
     accentColor: '#34c759',
     spotlightColor: 'rgba(52, 199, 89, 0.25)',
-    social: { label: '@braiangomes', url: 'https://instagram.com/' },
+    social: { label: 'Braian C. Gomes', url: 'https://www.linkedin.com/in/braiangomes/' },
   },
   {
     name: 'Jean Vialli',
@@ -85,7 +85,7 @@ const teamMembers = [
     image: '/images/team/jean.webp',
     accentColor: '#ff9f0a',
     spotlightColor: 'rgba(255, 159, 10, 0.25)',
-    social: { label: '@jeanvialli', url: 'https://instagram.com/' },
+    social: { label: 'Jean Vialli', url: 'https://www.linkedin.com/in/jean-lucca-vialli/' },
   },
   {
     name: 'Gabriel Mattiolli',
@@ -94,7 +94,16 @@ const teamMembers = [
     image: '/images/team/gabriel.webp',
     accentColor: '#bf5af2',
     spotlightColor: 'rgba(191, 90, 242, 0.25)',
-    social: { label: '@gabrielmattiolli', url: 'https://instagram.com/' },
+    social: { label: 'Gabriel Mattiolli', url: 'https://www.linkedin.com/in/gabriel-belich-886a46143/' },
+  },
+  {
+    name: 'Lucas Zanatta',
+    role: 'Engenheiro de Negócios',
+    bio: 'Estrutura modelos de negócio e estratégias comerciais que conectam a visão criativa aos resultados de mercado.',
+    image: '/images/team/lucas.webp',
+    accentColor: '#5AC8FA',
+    spotlightColor: 'rgba(90, 200, 250, 0.25)',
+    social: { label: 'Lucas Zanatta', url: 'https://www.linkedin.com/' },
   },
 ];
 
@@ -280,7 +289,7 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
             {teamMembers.map((member) => (
               <SpotlightCard key={member.name} spotlightColor={member.spotlightColor} className="team-card">
                 <div
@@ -311,9 +320,9 @@ export default function SobrePage() {
                   onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
                   </svg>
                   {member.social.label}
                 </a>

@@ -6,10 +6,12 @@ import StarBorder from '@/components/StarBorder';
 import SplitText from '@/components/SplitText';
 import { OrbitingCircleIcons } from '@/components/shadcn-space/orbiting-circles/orbiting-circles';
 
-function OrbitIcon({ label, color, bg, size = 28, pad = 10, children }: { label: string; color: string; bg: string; size?: number; pad?: number; children: ReactNode }) {
+function OrbitIcon({ label, color, bg, href, size = 28, pad = 10, children }: { label: string; color: string; bg: string; href?: string; size?: number; pad?: number; children: ReactNode }) {
   const [hovered, setHovered] = useState(false);
+  const Tag = href ? 'a' : 'div';
   return (
-    <div
+    <Tag
+      {...(href ? { href, style: { textDecoration: 'none' } } : {})}
       style={{
         position: 'relative',
         padding: pad,
@@ -21,6 +23,8 @@ function OrbitIcon({ label, color, bg, size = 28, pad = 10, children }: { label:
         transform: hovered ? 'scale(1.4)' : 'scale(1)',
         boxShadow: hovered ? `0 0 24px ${color}50` : 'none',
         opacity: hovered ? 4 : 1,
+        textDecoration: 'none',
+        display: 'block',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -49,7 +53,7 @@ function OrbitIcon({ label, color, bg, size = 28, pad = 10, children }: { label:
       >
         {label}
       </div>
-    </div>
+    </Tag>
   );
 }
 
@@ -103,34 +107,34 @@ export default function Hero() {
             width: '1000px',
             height: '1000px',
             zIndex: 15,
-            opacity: 0.25,
+            opacity: 0.75,
             pointerEvents: 'none',
           }}
         >
           <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {/* Outer orbit — 4 service icons */}
             <OrbitingCircleIcons radius={440} speed={0.4} path={false}>
-              <OrbitIcon label="Identidade de Marca" color="#0071e3" bg="rgba(0,113,227,0.15)">
+              <OrbitIcon label="Identidade de Marca" color="#0071e3" bg="rgba(0,113,227,0.15)" href="/servicos/identidade-de-marca">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" />
                   <path d="M2 17l10 5 10-5" />
                   <path d="M2 12l10 5 10-5" />
                 </svg>
               </OrbitIcon>
-              <OrbitIcon label="Web Design & Dev" color="#34c759" bg="rgba(52,199,89,0.15)">
+              <OrbitIcon label="Web Design & Dev" color="#34c759" bg="rgba(52,199,89,0.15)" href="/servicos/web-design-e-dev">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34c759" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="16 18 22 12 16 6" />
                   <polyline points="8 6 2 12 8 18" />
                 </svg>
               </OrbitIcon>
-              <OrbitIcon label="SEO & Conteúdo" color="#ff9f0a" bg="rgba(255,159,10,0.15)">
+              <OrbitIcon label="SEO & Conteúdo" color="#ff9f0a" bg="rgba(255,159,10,0.15)" href="/servicos/seo-e-conteudo">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff9f0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="20" x2="18" y2="10" />
                   <line x1="12" y1="20" x2="12" y2="4" />
                   <line x1="6" y1="20" x2="6" y2="14" />
                 </svg>
               </OrbitIcon>
-              <OrbitIcon label="Social Media & Performance" color="#bf5af2" bg="rgba(191,90,242,0.15)">
+              <OrbitIcon label="Social Media & Performance" color="#bf5af2" bg="rgba(191,90,242,0.15)" href="/servicos/social-media-e-performance">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bf5af2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
@@ -139,25 +143,25 @@ export default function Hero() {
 
             {/* Inner orbit — secondary icons, reverse */}
             <OrbitingCircleIcons radius={280} reverse speed={0.3} path={false}>
-              <OrbitIcon label="Estratégia" color="#5AC8FA" bg="rgba(90,200,250,0.15)" size={22} pad={8}>
+              <OrbitIcon label="Estratégia" color="#5AC8FA" bg="rgba(90,200,250,0.15)" size={22} pad={8} href="/sobre">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5AC8FA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <circle cx="12" cy="12" r="6" />
                   <circle cx="12" cy="12" r="2" />
                 </svg>
               </OrbitIcon>
-              <OrbitIcon label="Growth" color="#34c759" bg="rgba(52,199,89,0.15)" size={22} pad={8}>
+              <OrbitIcon label="Growth" color="#34c759" bg="rgba(52,199,89,0.15)" size={22} pad={8} href="/servicos/seo-e-conteudo">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34c759" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
                   <polyline points="17 6 23 6 23 12" />
                 </svg>
               </OrbitIcon>
-              <OrbitIcon label="Performance" color="#ff9f0a" bg="rgba(255,159,10,0.15)" size={22} pad={8}>
+              <OrbitIcon label="Performance" color="#ff9f0a" bg="rgba(255,159,10,0.15)" size={22} pad={8} href="/servicos/social-media-e-performance">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff9f0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
               </OrbitIcon>
-              <OrbitIcon label="Design" color="#0071e3" bg="rgba(0,113,227,0.15)" size={22} pad={8}>
+              <OrbitIcon label="Design" color="#0071e3" bg="rgba(0,113,227,0.15)" size={22} pad={8} href="/servicos/web-design-e-dev">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 19l7-7 3 3-7 7-3-3z" />
                   <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
