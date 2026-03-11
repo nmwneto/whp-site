@@ -29,6 +29,7 @@ const servicesLinks = [
   { title: 'Web Design & Dev', href: '/servicos/web-design-e-dev', color: '#34c759' },
   { title: 'SEO & Conteúdo', href: '/servicos/seo-e-conteudo', color: '#ff9f0a' },
   { title: 'Social Media & Performance', href: '/servicos/social-media-e-performance', color: '#bf5af2' },
+  { title: 'Projetos Personalizados', href: '/servicos/projetos-personalizados', color: '#ff375f' },
 ];
 
 function ServicesDropdown({ href }: { href: string }) {

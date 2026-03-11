@@ -59,6 +59,18 @@ const services = [
     spotlightColor: 'rgba(191, 90, 242, 0.25)',
     accentColor: '#bf5af2',
   },
+  {
+    title: 'Projetos Personalizados',
+    description: 'Soluções sob medida que combinam diferentes especialidades para atender demandas únicas e complexas do seu negócio.',
+    href: '/servicos/projetos-personalizados',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    ),
+    spotlightColor: 'rgba(255, 55, 95, 0.25)',
+    accentColor: '#ff375f',
+  },
 ];
 
 export default function Services() {
@@ -86,33 +98,62 @@ export default function Services() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.2} className="mx-auto grid max-w-[1100px] gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-        {services.map((service) => (
-          <a key={service.title} href={service.href} style={{ textDecoration: 'none' }}>
+      <FadeIn delay={0.2}>
+        <div className="mx-auto grid max-w-[1100px] gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+          {services.slice(0, 4).map((service) => (
+            <a key={service.title} href={service.href} style={{ textDecoration: 'none' }}>
+              <SpotlightCard
+                spotlightColor={service.spotlightColor}
+                className="services-card"
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div
+                    className="services-card__icon"
+                    style={{ color: service.accentColor }}
+                  >
+                    {service.icon}
+                  </div>
+                  <ArrowUpRight size={18} style={{ color: 'rgba(255,255,255,0.2)', transition: 'color 0.3s ease' }} />
+                </div>
+                <h3
+                  className="mt-5 text-lg font-semibold tracking-[-0.02em] text-white"
+                >
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
+                  {service.description}
+                </p>
+              </SpotlightCard>
+            </a>
+          ))}
+        </div>
+        {/* 5th card centered */}
+        <div className="mx-auto max-w-[1100px]" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
+          <a href={services[4].href} style={{ textDecoration: 'none', width: 'calc(50% - 0.5rem)' }}>
             <SpotlightCard
-              spotlightColor={service.spotlightColor}
+              spotlightColor={services[4].spotlightColor}
               className="services-card"
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div
                   className="services-card__icon"
-                  style={{ color: service.accentColor }}
+                  style={{ color: services[4].accentColor }}
                 >
-                  {service.icon}
+                  {services[4].icon}
                 </div>
                 <ArrowUpRight size={18} style={{ color: 'rgba(255,255,255,0.2)', transition: 'color 0.3s ease' }} />
               </div>
               <h3
                 className="mt-5 text-lg font-semibold tracking-[-0.02em] text-white"
               >
-                {service.title}
+                {services[4].title}
               </h3>
               <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
-                {service.description}
+                {services[4].description}
               </p>
             </SpotlightCard>
           </a>
-        ))}
+        </div>
       </FadeIn>
     </section>
   );

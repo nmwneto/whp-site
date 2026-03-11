@@ -353,6 +353,12 @@
 .teste-cta-star.cta-purple:hover .inner-content {
   background: linear-gradient(135deg, #a845d9, rgba(191,90,242,0.1));
 }
+.teste-cta-star.cta-red .inner-content {
+  background: linear-gradient(135deg, #ff375f, transparent);
+}
+.teste-cta-star.cta-red:hover .inner-content {
+  background: linear-gradient(135deg, #e0304f, rgba(255,55,95,0.1));
+}
 
 /* Hero nav */
 .hero-nav {
@@ -501,8 +507,9 @@
   color: #fff;
   font-size: clamp(2.25rem, 5.5vw, 4rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.18;
   letter-spacing: -0.035em;
+  padding-bottom: 0.05em;
 }
 
 /* Logo loop */

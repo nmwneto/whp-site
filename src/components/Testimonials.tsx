@@ -102,14 +102,17 @@ export default function Testimonials() {
               <svg
                 width="32"
                 height="32"
-                viewBox="0 0 24 24"
+                viewBox="0 0 32 32"
                 fill="none"
-                style={{ marginBottom: '1.25rem', opacity: 0.15 }}
+                style={{ marginBottom: '1.25rem', opacity: 0.15, overflow: 'visible' }}
               >
                 <path
-                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.76-2-1.76-2H3.24C2.24 3 1.5 3.75 1.5 5v6c0 1.25.75 2 1.75 2H9c0 3.75-2.5 6-6 6.5M22 21c3 0 7-1 7-8V5c0-1.25-.76-2-1.76-2h-4.5C21.24 3 20.5 3.75 20.5 5v6c0 1.25.75 2 1.75 2H28c0 3.75-2.5 6-6 6.5"
+                  d="M4 24c3 0 7-1 7-8V8c0-1.25-.76-2-1.76-2H4.24C3.24 6 2.5 6.75 2.5 8v6c0 1.25.75 2 1.75 2H10c0 3.75-2.5 6-6 6.5"
                   fill="white"
-                  transform="scale(0.85) translate(1, 1)"
+                />
+                <path
+                  d="M20 24c3 0 7-1 7-8V8c0-1.25-.76-2-1.76-2h-4.5C19.24 6 18.5 6.75 18.5 8v6c0 1.25.75 2 1.75 2H26c0 3.75-2.5 6-6 6.5"
+                  fill="white"
                 />
               </svg>
 
