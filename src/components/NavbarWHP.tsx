@@ -186,14 +186,14 @@ export default function NavbarWHP() {
           <a
             href="/"
             style={{
-              fontSize: '1.125rem',
-              fontWeight: 800,
+              fontFamily: "'Kangge', sans-serif",
+              fontSize: '1.75rem',
               color: '#fff',
-              letterSpacing: '-0.04em',
               textDecoration: 'none',
+              letterSpacing: '0.02em',
             }}
           >
-            WHP
+            whp
           </a>
 
           {/* Desktop nav */}

@@ -83,16 +83,7 @@ export default function Footer() {
         >
           {/* Brand */}
           <div>
-            <span
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 800,
-                color: '#fff',
-                letterSpacing: '-0.03em',
-              }}
-            >
-              WHP
-            </span>
+            <span style={{ fontFamily: "'Kangge', sans-serif", fontSize: '2rem', color: '#fff', letterSpacing: '0.02em' }}>whp</span>
             <p
               style={{
                 marginTop: '1rem',

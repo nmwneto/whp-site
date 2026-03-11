@@ -6,22 +6,22 @@ import FadeIn from '@/components/FadeIn';
 
 const projects = [
   {
-    image: 'https://images.shadcnspace.com/assets/portfolio/flowbank.webp',
-    title: 'Flowbank',
+    image: '/images/portfolio/portobatel.webp',
+    title: 'Porto Batel',
     tags: ['Identidade Visual', 'Web Design'],
+    tagColors: ['#0071e3', '#34c759'],
+  },
+  {
+    image: '/images/portfolio/jaksbroco.webp',
+    title: 'Broco Alvim Consultoria',
+    tags: ['Identidade Visual'],
     accentColor: '#0071e3',
   },
   {
-    image: 'https://images.shadcnspace.com/assets/portfolio/academy.webp',
-    title: 'Academy.co',
-    tags: ['Product Design', 'UI/UX'],
-    accentColor: '#bf5af2',
-  },
-  {
-    image: 'https://images.shadcnspace.com/assets/portfolio/genome.webp',
-    title: 'Genome',
-    tags: ['Branding', 'Estratégia'],
-    accentColor: '#34c759',
+    image: '/images/portfolio/angeli.webp',
+    title: 'Restaurante Angeli',
+    tags: ['Identidade Visual'],
+    accentColor: '#0071e3',
   },
   {
     image: 'https://images.shadcnspace.com/assets/portfolio/hotto.webp',
@@ -140,23 +140,26 @@ export default function Portfolio() {
                     {project.title}
                   </h3>
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        style={{
-                          display: 'inline-flex',
-                          padding: '0.3rem 0.875rem',
-                          borderRadius: '100px',
-                          fontSize: '0.75rem',
-                          fontWeight: 500,
-                          color: project.accentColor,
-                          background: `${project.accentColor}15`,
-                          border: `1px solid ${project.accentColor}20`,
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {project.tags.map((tag, idx) => {
+                      const color = project.tagColors ? project.tagColors[idx] : project.accentColor;
+                      return (
+                        <span
+                          key={tag}
+                          style={{
+                            display: 'inline-flex',
+                            padding: '0.3rem 0.875rem',
+                            borderRadius: '100px',
+                            fontSize: '0.75rem',
+                            fontWeight: 500,
+                            color: color,
+                            background: `${color}15`,
+                            border: `1px solid ${color}20`,
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
