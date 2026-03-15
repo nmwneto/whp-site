@@ -95,7 +95,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   html {
-    @apply font-sans;
+    @apply font-sans bg-background;
     scroll-behavior: smooth;
   }
 
@@ -758,5 +758,31 @@
   .cta-buttons > * {
     text-align: center;
     justify-content: center;
+  }
+}
+
+/* --- Páginas internas: "Porque investir" (2 cols → 1 col) --- */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* --- Páginas internas: "O que você recebe" (3 cols → scroll horizontal) --- */
+@media (max-width: 768px) {
+  .deliverables-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px !important;
+    padding-bottom: 8px;
+  }
+  .deliverables-grid::-webkit-scrollbar { display: none; }
+  .deliverables-grid > div {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
   }
 }

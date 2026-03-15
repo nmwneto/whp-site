@@ -163,7 +163,7 @@ export default function IdentidadeDeMarcaPage() {
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <div className="mx-auto max-w-[900px]" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+        <div className="about-grid mx-auto max-w-[900px]" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
           <div>
             <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '1rem' }}>
               Por que investir em identidade visual?
@@ -204,7 +204,7 @@ export default function IdentidadeDeMarcaPage() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+            <div className="deliverables-grid grid gap-4" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
               {deliverables.map((item) => (
                 <SpotlightCard
                   key={item.title}
