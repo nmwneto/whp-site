@@ -612,51 +612,18 @@
   }
 }
 
-/* --- Stats: scroll horizontal --- */
-.stats-arrow {
-  display: none;
-}
-
+/* --- Stats: coluna vertical no mobile --- */
 @media (max-width: 768px) {
-  .stats-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
   .stats-grid {
     display: flex !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    grid-template-columns: none !important;
-    gap: 0 !important;
-    scrollbar-width: none;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 2.5rem !important;
     padding-top: 2rem !important;
     margin-top: 2.5rem !important;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    flex: 1;
   }
-  .stats-grid::-webkit-scrollbar { display: none; }
   .stats-grid > div {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
     border-right: none !important;
-    padding: 0 1rem;
-  }
-  .stats-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: all 0.25s ease;
-    z-index: 2;
   }
 }
 

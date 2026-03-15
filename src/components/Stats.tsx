@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import CountUp from '@/components/CountUp';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
@@ -19,15 +18,6 @@ const tags = [
 ];
 
 export default function Stats() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const scrollAmount = container.offsetWidth * 0.75;
-    container.scrollBy({ left: direction === 'right' ? scrollAmount : -scrollAmount, behavior: 'smooth' });
-  };
-
   return (
     <section
       style={{
@@ -70,75 +60,50 @@ export default function Stats() {
         </div>
 
         {/* Counters */}
-        <div className="stats-wrapper">
-          {/* Left arrow — mobile only */}
-          <button
-            className="stats-arrow stats-arrow--left"
-            onClick={() => scroll('left')}
-            aria-label="Anterior"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-
-          <div
-            ref={scrollRef}
-            className="stats-grid mt-16 grid grid-cols-3"
-            style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '3rem' }}
-          >
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center text-center"
-                style={{
-                  borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-                }}
-              >
-                <div className="flex items-start">
-                  <span
-                    style={{
-                      fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-                      fontWeight: 600,
-                      color: 'rgba(255,255,255,0.4)',
-                      lineHeight: 1,
-                      marginTop: '0.25em',
-                    }}
-                  >
-                    +
-                  </span>
-                  <CountUp
-                    to={stat.value}
-                    from={0}
-                    duration={2.5}
-                    className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-[-0.04em] text-white"
-                    separator=""
-                  />
-                </div>
-                <p
+        <div
+          className="stats-grid mt-16 grid grid-cols-3"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '3rem' }}
+        >
+          {stats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className="flex flex-col items-center text-center"
+              style={{
+                borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+              }}
+            >
+              <div className="flex items-start">
+                <span
                   style={{
+                    fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+                    fontWeight: 600,
                     color: 'rgba(255,255,255,0.4)',
-                    fontSize: '0.875rem',
-                    fontWeight: 400,
-                    marginTop: '0.5rem',
+                    lineHeight: 1,
+                    marginTop: '0.25em',
                   }}
                 >
-                  {stat.label}
-                </p>
+                  +
+                </span>
+                <CountUp
+                  to={stat.value}
+                  from={0}
+                  duration={2.5}
+                  className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-[-0.04em] text-white"
+                  separator=""
+                />
               </div>
-            ))}
-          </div>
-
-          {/* Right arrow — mobile only */}
-          <button
-            className="stats-arrow stats-arrow--right"
-            onClick={() => scroll('right')}
-            aria-label="Próximo"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 6 15 12 9 18" />
-            </svg>
-          </button>
+              <p
+                style={{
+                  color: 'rgba(255,255,255,0.4)',
+                  fontSize: '0.875rem',
+                  fontWeight: 400,
+                  marginTop: '0.5rem',
+                }}
+              >
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
       </FadeIn>
     </section>
