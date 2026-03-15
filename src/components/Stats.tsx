@@ -70,7 +70,18 @@ export default function Stats() {
         </div>
 
         {/* Counters */}
-        <div style={{ position: 'relative' }}>
+        <div className="stats-wrapper">
+          {/* Left arrow — mobile only */}
+          <button
+            className="stats-arrow stats-arrow--left"
+            onClick={() => scroll('left')}
+            aria-label="Anterior"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
           <div
             ref={scrollRef}
             className="stats-grid mt-16 grid grid-cols-3"
@@ -118,51 +129,16 @@ export default function Stats() {
             ))}
           </div>
 
-          {/* Scroll arrows — mobile only */}
-          <div className="stats-arrows">
-            <button
-              onClick={() => scroll('left')}
-              aria-label="Anterior"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 36,
-                height: 36,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: 'rgba(255,255,255,0.5)',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              aria-label="Próximo"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 36,
-                height: 36,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: 'rgba(255,255,255,0.5)',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 6 15 12 9 18" />
-              </svg>
-            </button>
-          </div>
+          {/* Right arrow — mobile only */}
+          <button
+            className="stats-arrow stats-arrow--right"
+            onClick={() => scroll('right')}
+            aria-label="Próximo"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+          </button>
         </div>
       </FadeIn>
     </section>
