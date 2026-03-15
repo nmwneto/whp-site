@@ -223,49 +223,6 @@ export default function WebDesignDevPage() {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section
-        style={{
-          background: '#0a0a0a',
-          padding: '5rem 4rem',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-        }}
-      >
-        <div className="mx-auto max-w-[800px]">
-          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Tecnologias
-            </p>
-            <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-              Stack moderna
-            </h2>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
-            {[
-              'Next.js', 'React', 'TypeScript', 'Tailwind CSS',
-              'Node.js', 'Vercel', 'PostgreSQL', 'Figma',
-            ].map((tech) => (
-              <div
-                key={tech}
-                style={{
-                  padding: '1rem',
-                  background: '#111',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  borderRadius: '0.75rem',
-                  textAlign: 'center',
-                  color: 'rgba(255,255,255,0.6)',
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                }}
-              >
-                {tech}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
       <section
         style={{
