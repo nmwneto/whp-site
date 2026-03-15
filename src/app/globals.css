@@ -93,7 +93,6 @@
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
   html {
     @apply font-sans bg-background;
@@ -601,14 +600,25 @@
    RESPONSIVIDADE MOBILE
    ======================================== */
 
+/* --- Prevent horizontal scroll globally --- */
+html, body {
+  overflow-x: hidden !important;
+}
+
 /* --- Foundation: Padding responsivo --- */
 @media (max-width: 768px) {
-  section {
+  section,
+  footer {
     padding: 4rem 1.25rem !important;
+  }
+  /* Navbar padding */
+  header > div {
+    padding: 0.75rem 1rem !important;
   }
 }
 @media (max-width: 480px) {
-  section {
+  section,
+  footer {
     padding: 3rem 1rem !important;
   }
 }
