@@ -93,6 +93,7 @@
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   html {
     @apply font-sans bg-background;
@@ -761,11 +762,18 @@
   }
 }
 
-/* --- Páginas internas: "Porque investir" (2 cols → 1 col) --- */
+/* --- Páginas internas: "Porque investir" (2 cols → 1 col centrado) --- */
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
+    text-align: center;
+  }
+  .about-grid h2 {
+    font-size: clamp(1.5rem, 5vw, 1.75rem) !important;
+  }
+  .about-grid > div:last-child {
+    text-align: left;
   }
 }
 
