@@ -57,8 +57,8 @@
 }
 
 :root {
-  --background: #fbfbfd;
-  --foreground: #1d1d1f;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
   --card: #ffffff;
   --card-foreground: #1d1d1f;
   --popover: #ffffff;
@@ -718,6 +718,17 @@
   }
   .hero-ctas > * {
     text-align: center;
+    justify-content: center;
+  }
+  /* StarBorder: inner content fills container on mobile */
+  .hero-ctas .star-border-container,
+  .cta-buttons .star-border-container {
+    display: block !important;
+  }
+  .hero-ctas .star-border-container .inner-content,
+  .cta-buttons .star-border-container .inner-content {
+    display: flex;
+    width: 100%;
     justify-content: center;
   }
 }
