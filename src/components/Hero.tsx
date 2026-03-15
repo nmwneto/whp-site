@@ -99,6 +99,7 @@ export default function Hero() {
       {/* Orbiting service icons */}
       {mounted && (
         <div
+          className="hero-orbits"
           style={{
             position: 'absolute',
             top: '50%',
@@ -248,6 +249,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
+          className="hero-ctas"
           style={{
             display: 'flex',
             alignItems: 'center',

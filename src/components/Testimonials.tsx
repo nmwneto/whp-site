@@ -89,7 +89,7 @@ export default function Testimonials() {
         {/* Cards */}
         <FadeIn delay={0.2}>
         <div
-          className="mx-auto grid gap-5"
+          className="testimonials-grid mx-auto grid gap-5"
           style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
         >
           {testimonials.map((t) => (

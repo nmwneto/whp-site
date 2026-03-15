@@ -36,7 +36,7 @@ export default function CtaBanner() {
         >
           Vamos conversar sobre o seu projeto e criar algo extraordinário juntos.
         </p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingTop: '0.5rem' }}>
+        <div className="cta-buttons" style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingTop: '0.5rem' }}>
           <StarBorder
             as="a"
             href="#contato"

@@ -75,6 +75,7 @@ export default function Footer() {
         style={{ padding: '4rem 4rem 3rem' }}
       >
         <div
+          className="footer-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '1.4fr 1fr 1fr 1fr',
@@ -281,7 +282,7 @@ export default function Footer() {
         }}
       >
         <div
-          className="mx-auto max-w-[1100px]"
+          className="footer-bottom mx-auto max-w-[1100px]"
           style={{
             padding: '1.5rem 4rem',
             display: 'flex',

@@ -61,7 +61,7 @@ export default function Stats() {
 
         {/* Counters */}
         <div
-          className="mt-16 grid grid-cols-3"
+          className="stats-grid mt-16 grid grid-cols-3"
           style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '3rem' }}
         >
           {stats.map((stat, i) => (

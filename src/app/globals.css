@@ -579,3 +579,180 @@
   50% { transform: translateY(0); }
   100% { transform: translateY(100%); }
 }
+
+/* ========================================
+   SERVICES GRID — Desktop layout (moved from inline)
+   ======================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.services-grid > a:last-child {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 0.5rem);
+  justify-self: center;
+}
+
+/* ========================================
+   RESPONSIVIDADE MOBILE
+   ======================================== */
+
+/* --- Foundation: Padding responsivo --- */
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1.25rem !important;
+  }
+}
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 1rem !important;
+  }
+}
+
+/* --- Stats: scroll horizontal --- */
+@media (max-width: 768px) {
+  .stats-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    grid-template-columns: none !important;
+    gap: 0 !important;
+    scrollbar-width: none;
+    padding-top: 2rem !important;
+    margin-top: 2.5rem !important;
+  }
+  .stats-grid::-webkit-scrollbar { display: none; }
+  .stats-grid > div {
+    flex: 0 0 70%;
+    scroll-snap-align: center;
+    border-right: none !important;
+    padding: 0 1rem;
+  }
+}
+
+/* --- Services: scroll horizontal --- */
+@media (max-width: 768px) {
+  .services-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px !important;
+    padding-bottom: 8px;
+  }
+  .services-grid::-webkit-scrollbar { display: none; }
+  .services-grid > a {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    max-width: none !important;
+  }
+  .services-grid > a:last-child {
+    grid-column: auto;
+    max-width: none !important;
+    justify-self: auto;
+  }
+}
+
+/* --- Portfolio: scroll horizontal --- */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px !important;
+    padding-bottom: 8px;
+  }
+  .portfolio-grid::-webkit-scrollbar { display: none; }
+  .portfolio-grid > div {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}
+
+/* --- Team: scroll horizontal --- */
+@media (max-width: 768px) {
+  .team-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px !important;
+    padding-bottom: 8px;
+  }
+  .team-grid::-webkit-scrollbar { display: none; }
+  .team-grid > div {
+    flex: 0 0 75%;
+    scroll-snap-align: start;
+    min-width: 260px;
+  }
+}
+
+/* --- Testimonials: scroll horizontal --- */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px !important;
+    padding-bottom: 8px;
+  }
+  .testimonials-grid::-webkit-scrollbar { display: none; }
+  .testimonials-grid > div {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}
+
+/* --- Hero: orbiting circles + CTAs --- */
+@media (max-width: 768px) {
+  .hero-orbits {
+    display: none !important;
+  }
+  .hero-ctas {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: stretch !important;
+  }
+  .hero-ctas > * {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* --- Footer: stack colunas --- */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    text-align: center;
+    padding: 1.5rem 1.25rem !important;
+  }
+}
+
+/* --- CtaBanner: CTAs empilhados --- */
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: stretch !important;
+  }
+  .cta-buttons > * {
+    text-align: center;
+    justify-content: center;
+  }
+}

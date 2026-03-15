@@ -99,8 +99,8 @@ export default function Services() {
       </FadeIn>
 
       <FadeIn delay={0.2}>
-        <div className="mx-auto grid max-w-[1100px] gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          {services.slice(0, 4).map((service) => (
+        <div className="services-grid">
+          {services.map((service) => (
             <a key={service.title} href={service.href} style={{ textDecoration: 'none' }}>
               <SpotlightCard
                 spotlightColor={service.spotlightColor}
@@ -126,33 +126,6 @@ export default function Services() {
               </SpotlightCard>
             </a>
           ))}
-        </div>
-        {/* 5th card centered */}
-        <div className="mx-auto max-w-[1100px]" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
-          <a href={services[4].href} style={{ textDecoration: 'none', width: 'calc(50% - 0.5rem)' }}>
-            <SpotlightCard
-              spotlightColor={services[4].spotlightColor}
-              className="services-card"
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div
-                  className="services-card__icon"
-                  style={{ color: services[4].accentColor }}
-                >
-                  {services[4].icon}
-                </div>
-                <ArrowUpRight size={18} style={{ color: 'rgba(255,255,255,0.2)', transition: 'color 0.3s ease' }} />
-              </div>
-              <h3
-                className="mt-5 text-lg font-semibold tracking-[-0.02em] text-white"
-              >
-                {services[4].title}
-              </h3>
-              <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
-                {services[4].description}
-              </p>
-            </SpotlightCard>
-          </a>
         </div>
       </FadeIn>
     </section>

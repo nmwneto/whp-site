@@ -91,7 +91,7 @@ export default function Team() {
       </FadeIn>
 
       <FadeIn delay={0.2}
-        className="mx-auto max-w-[1100px] grid gap-5"
+        className="team-grid mx-auto max-w-[1100px] grid gap-5"
         style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
       >
         {teamMembers.map((member) => (

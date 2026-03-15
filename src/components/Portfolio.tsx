@@ -74,7 +74,7 @@ export default function Portfolio() {
 
         {/* Grid */}
         <div
-          className="grid gap-6"
+          className="portfolio-grid grid gap-6"
           style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}
         >
           {projects.map((project, i) => (
