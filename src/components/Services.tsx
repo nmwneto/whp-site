@@ -7,7 +7,7 @@ import FadeIn from '@/components/FadeIn';
 
 const services = [
   {
-    title: 'Identidade Visual',
+    title: 'Identidade de Marca',
     description: 'Logotipos, paletas, tipografia e guidelines que traduzem a essência da sua marca em cada ponto de contato.',
     href: '/servicos/identidade-de-marca',
     icon: (

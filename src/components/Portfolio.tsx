@@ -8,25 +8,25 @@ const projects = [
   {
     image: '/images/portfolio/portobatel.webp',
     title: 'Porto Batel',
-    tags: ['Identidade Visual', 'Web Design'],
+    tags: ['Identidade de Marca', 'Web Design'],
     tagColors: ['#0071e3', '#34c759'],
   },
   {
     image: '/images/portfolio/jaksbroco.webp',
     title: 'Broco Alvim Consultoria',
-    tags: ['Identidade Visual'],
+    tags: ['Identidade de Marca'],
     accentColor: '#0071e3',
   },
   {
     image: '/images/portfolio/angeli.webp',
     title: 'Restaurante Angeli',
-    tags: ['Identidade Visual'],
+    tags: ['Identidade de Marca'],
     accentColor: '#0071e3',
   },
   {
     image: '/images/portfolio/f7inc.webp',
     title: 'F7 Inc.',
-    tags: ['Identidade Visual'],
+    tags: ['Identidade de Marca'],
     accentColor: '#0071e3',
   },
 ];

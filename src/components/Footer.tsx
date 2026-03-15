@@ -11,7 +11,7 @@ const navLinks = [
 ];
 
 const services = [
-  'Identidade Visual',
+  'Identidade de Marca',
   'Web Design & Dev',
   'SEO & Performance',
   'Social Media',
