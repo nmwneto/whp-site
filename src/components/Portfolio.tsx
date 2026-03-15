@@ -24,10 +24,10 @@ const projects = [
     accentColor: '#0071e3',
   },
   {
-    image: 'https://images.shadcnspace.com/assets/portfolio/hotto.webp',
-    title: 'Hotto',
-    tags: ['Web Design', 'SEO'],
-    accentColor: '#ff9f0a',
+    image: '/images/portfolio/f7inc.webp',
+    title: 'F7 Inc.',
+    tags: ['Identidade Visual'],
+    accentColor: '#0071e3',
   },
 ];
 
