@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import ClickSparkWrapper from "@/components/ClickSparkWrapper";
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <ClickSparkWrapper>
           {children}
         </ClickSparkWrapper>
+        <Analytics />
       </body>
     </html>
   );
