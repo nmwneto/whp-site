@@ -3,8 +3,11 @@
 import StarBorder from '@/components/StarBorder';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
+import { useTranslation } from '@/i18n/LanguageContext';
 
 export default function CtaBanner() {
+  const { t } = useTranslation();
+
   return (
     <section
       style={{
@@ -19,7 +22,7 @@ export default function CtaBanner() {
         style={{ gap: '1.5rem' }}
       >
         <BlurText
-          text="Pronto para transformar sua marca?"
+          text={t.ctaBanner.heading}
           className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-0.03em] text-white leading-[1.15]"
           delay={60}
           animateBy="words"
@@ -34,7 +37,7 @@ export default function CtaBanner() {
             maxWidth: '500px',
           }}
         >
-          Vamos conversar sobre o seu projeto e criar algo extraordinário juntos.
+          {t.ctaBanner.subtitle}
         </p>
         <div className="cta-buttons" style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingTop: '0.5rem' }}>
           <StarBorder
@@ -45,7 +48,7 @@ export default function CtaBanner() {
             thickness={3}
             className="teste-cta-star"
           >
-            Iniciar projeto
+            {t.ctaBanner.cta}
           </StarBorder>
           <a
             href="https://wa.me/"
@@ -65,7 +68,7 @@ export default function CtaBanner() {
               transition: 'all 0.3s ease',
             }}
           >
-            Fale no WhatsApp
+            {t.ctaBanner.ctaSecondary}
           </a>
         </div>
       </FadeIn>

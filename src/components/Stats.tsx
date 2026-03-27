@@ -3,21 +3,24 @@
 import CountUp from '@/components/CountUp';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
-
-const stats = [
-  { value: 40, label: 'Projetos realizados' },
-  { value: 10, label: 'Anos de experiência de mercado' },
-  { value: 5, label: 'Países atendidos' },
-];
-
-const tags = [
-  { label: 'Criatividade', color: '#7c3aed', bg: 'rgba(124, 58, 237, 0.1)' },
-  { label: 'Inovação', color: '#0071e3', bg: 'rgba(0, 113, 227, 0.1)' },
-  { label: 'Estratégia', color: '#ff9f0a', bg: 'rgba(255, 159, 10, 0.1)' },
-  { label: 'Tecnologia', color: '#34c759', bg: 'rgba(52, 199, 89, 0.1)' },
-];
+import { useTranslation } from '@/i18n/LanguageContext';
 
 export default function Stats() {
+  const { t } = useTranslation();
+
+  const tags = [
+    { label: t.stats.tags[0], color: '#7c3aed', bg: 'rgba(124, 58, 237, 0.1)' },
+    { label: t.stats.tags[1], color: '#0071e3', bg: 'rgba(0, 113, 227, 0.1)' },
+    { label: t.stats.tags[2], color: '#ff9f0a', bg: 'rgba(255, 159, 10, 0.1)' },
+    { label: t.stats.tags[3], color: '#34c759', bg: 'rgba(52, 199, 89, 0.1)' },
+  ];
+
+  const stats = [
+    { value: 40, label: t.stats.labels[0] },
+    { value: 10, label: t.stats.labels[1] },
+    { value: 5, label: t.stats.labels[2] },
+  ];
+
   return (
     <section
       style={{
@@ -29,7 +32,7 @@ export default function Stats() {
         {/* Heading */}
         <div className="mx-auto text-center" style={{ maxWidth: '800px' }}>
           <BlurText
-            text="Somos o parceiro estratégico ideal para gerar resultados e o crescimento exponencial do seu negócio."
+            text={t.stats.heading}
             className="text-[clamp(1.75rem,4vw,3rem)] font-bold leading-[1.15] tracking-[-0.03em] text-white justify-center"
             delay={60}
             animateBy="words"

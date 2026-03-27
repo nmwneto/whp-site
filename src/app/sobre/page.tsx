@@ -6,65 +6,43 @@ import StarBorder from '@/components/StarBorder';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/FadeIn';
+import { useTranslation } from '@/i18n/LanguageContext';
 
-const values = [
-  {
-    title: 'Estratégia primeiro',
-    description: 'Cada decisão de design e tecnologia é fundamentada em dados, objetivos de negócio e entendimento profundo do público-alvo.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
-    color: '#0071e3',
-    spotlight: 'rgba(0,113,227,0.2)',
-  },
-  {
-    title: 'Design com propósito',
-    description: 'Não criamos apenas coisas bonitas — criamos experiências visuais que comunicam, engajam e convertem.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
-    color: '#bf5af2',
-    spotlight: 'rgba(191,90,242,0.2)',
-  },
-  {
-    title: 'Tecnologia de ponta',
-    description: 'Utilizamos as melhores ferramentas e frameworks do mercado para entregar produtos rápidos, escaláveis e seguros.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-    color: '#34c759',
-    spotlight: 'rgba(52,199,89,0.2)',
-  },
-  {
-    title: 'Resultados mensuráveis',
-    description: 'Tudo o que fazemos é orientado a métricas. Relatórios claros, KPIs definidos e otimização contínua.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-        <polyline points="17 6 23 6 23 12" />
-      </svg>
-    ),
-    color: '#ff9f0a',
-    spotlight: 'rgba(255,159,10,0.2)',
-  },
+const valueIcons = [
+  (
+    <svg key="strategy" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  ),
+  (
+    <svg key="design" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+      <path d="M2 17l10 5 10-5" />
+      <path d="M2 12l10 5 10-5" />
+    </svg>
+  ),
+  (
+    <svg key="tech" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  (
+    <svg key="results" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+      <polyline points="17 6 23 6 23 12" />
+    </svg>
+  ),
 ];
 
-const teamMembers = [
+const valueColors = ['#0071e3', '#bf5af2', '#34c759', '#ff9f0a'];
+const valueSpotlights = ['rgba(0,113,227,0.2)', 'rgba(191,90,242,0.2)', 'rgba(52,199,89,0.2)', 'rgba(255,159,10,0.2)'];
+
+const teamMembersStatic = [
   {
     name: 'Nelson Mozart',
-    role: 'Designer Multidisciplinar',
-    bio: 'Lidera a visão criativa e estratégica de cada projeto, unindo branding, UI/UX e direção de arte.',
     image: '/images/team/nelson.webp',
     accentColor: '#0071e3',
     spotlightColor: 'rgba(0, 113, 227, 0.25)',
@@ -72,8 +50,6 @@ const teamMembers = [
   },
   {
     name: 'Braian C. Gomes',
-    role: 'Designer de Produto',
-    bio: 'Especialista em experiência do usuário e design de produto com foco em usabilidade e conversão.',
     image: '/images/team/braian.webp',
     accentColor: '#34c759',
     spotlightColor: 'rgba(52, 199, 89, 0.25)',
@@ -81,8 +57,6 @@ const teamMembers = [
   },
   {
     name: 'Jean Vialli',
-    role: 'Especialista em SEO',
-    bio: 'Conecta marcas ao público certo com estratégias de conteúdo e otimização orientadas a dados.',
     image: '/images/team/jean.webp',
     accentColor: '#ff9f0a',
     spotlightColor: 'rgba(255, 159, 10, 0.25)',
@@ -90,8 +64,6 @@ const teamMembers = [
   },
   {
     name: 'Gabriel Mattiolli',
-    role: 'Engenheiro de IA',
-    bio: 'Desenvolve soluções inteligentes com inteligência artificial aplicada a automação, dados e performance.',
     image: '/images/team/gabriel.webp',
     accentColor: '#bf5af2',
     spotlightColor: 'rgba(191, 90, 242, 0.25)',
@@ -99,8 +71,6 @@ const teamMembers = [
   },
   {
     name: 'Lucas Zanatta',
-    role: 'Engenheiro de Negócios',
-    bio: 'Estrutura modelos de negócio e estratégias comerciais que conectam a visão criativa aos resultados de mercado.',
     image: '/images/team/zanatta.webp',
     accentColor: '#5AC8FA',
     spotlightColor: 'rgba(90, 200, 250, 0.25)',
@@ -108,8 +78,6 @@ const teamMembers = [
   },
   {
     name: 'João Balzer',
-    role: 'Engenheiro de Dados',
-    bio: 'Transforma dados em insights acionáveis com pipelines robustos, analytics e inteligência orientada a resultados.',
     image: '/images/team/balzer.webp',
     accentColor: '#ff375f',
     spotlightColor: 'rgba(255, 55, 95, 0.25)',
@@ -117,14 +85,25 @@ const teamMembers = [
   },
 ];
 
-const milestones = [
-  { year: '2018', text: 'Fundação da WHP com foco em estratégia, design e tecnologia para marcas.' },
-  { year: '2019', text: 'Internacionalização dos trabalhos, atendendo clientes fora do Brasil.' },
-  { year: '2022', text: 'Conquista de clientes de grande porte, consolidando a atuação no mercado.' },
-  { year: '2026', text: 'Rebrand completo da marca — nova identidade visual, posicionamento e site.' },
-];
-
 export default function SobrePage() {
+  const { t } = useTranslation();
+
+  const values = t.aboutPage.values.map((v, i) => ({
+    title: v.title,
+    description: v.desc,
+    icon: valueIcons[i],
+    color: valueColors[i],
+    spotlight: valueSpotlights[i],
+  }));
+
+  const milestones = t.aboutPage.milestones;
+
+  const teamMembers = teamMembersStatic.map((member, i) => ({
+    ...member,
+    role: t.team.roles[i],
+    bio: t.team.bios[i],
+  }));
+
   return (
     <>
       <NavbarWHP />
@@ -141,7 +120,7 @@ export default function SobrePage() {
       >
         <FadeIn className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#5AC8FA]">
-            Sobre nós
+            {t.aboutPage.label}
           </p>
           <BlurText
             text="We Have a Plan"
@@ -151,8 +130,7 @@ export default function SobrePage() {
             direction="bottom"
           />
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.125rem', lineHeight: 1.7, maxWidth: 620 }}>
-            Somos uma agência de design e tecnologia que transforma marcas em referências digitais.
-            Combinamos estratégia, criatividade e execução técnica para entregar resultados reais.
+            {t.aboutPage.intro}
           </p>
         </FadeIn>
       </section>
@@ -168,24 +146,24 @@ export default function SobrePage() {
         <FadeIn className="mx-auto max-w-[1000px]" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
           <div>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Nossa missão
+              {t.aboutPage.missionLabel}
             </p>
             <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '1.25rem' }}>
-              Impulsionar negócios através de design e tecnologia
+              {t.aboutPage.missionTitle}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-              Acreditamos que toda marca tem potencial para se tornar referência. Nossa missão é desbloquear esse potencial com estratégias criativas, design de excelência e soluções tecnológicas que geram crescimento sustentável.
+              {t.aboutPage.missionText}
             </p>
           </div>
           <div>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Nossa visão
+              {t.aboutPage.visionLabel}
             </p>
             <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '1.25rem' }}>
-              Ser a parceira estratégica de marcas ambiciosas
+              {t.aboutPage.visionTitle}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-              Queremos ser reconhecidos como a agência que empresas procuram quando precisam de mais do que bonito — precisam de resultados. Do branding ao código, entregamos soluções completas que fazem marcas crescerem de verdade.
+              {t.aboutPage.visionText}
             </p>
           </div>
         </FadeIn>
@@ -202,10 +180,10 @@ export default function SobrePage() {
         <FadeIn className="mx-auto max-w-[1100px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Valores
+              {t.aboutPage.valuesLabel}
             </p>
             <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-              O que nos guia
+              {t.aboutPage.valuesTitle}
             </h2>
           </div>
 
@@ -234,10 +212,10 @@ export default function SobrePage() {
         <FadeIn className="mx-auto max-w-[700px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Trajetória
+              {t.aboutPage.timelineLabel}
             </p>
             <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-              Nossa história
+              {t.aboutPage.timelineTitle}
             </h2>
           </div>
 
@@ -289,13 +267,13 @@ export default function SobrePage() {
         <FadeIn className="mx-auto max-w-[1100px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Quem faz acontecer
+              {t.aboutPage.teamLabel}
             </p>
             <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-              Nosso time
+              {t.aboutPage.teamTitle}
             </h2>
             <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
-              Uma equipe multidisciplinar unida por um objetivo: transformar marcas em referência.
+              {t.aboutPage.teamSubtitle}
             </p>
           </div>
 
@@ -352,10 +330,10 @@ export default function SobrePage() {
       >
         <FadeIn className="mx-auto max-w-[600px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-[-0.03em] text-white leading-[1.15]">
-            Vamos trabalhar juntos?
+            {t.aboutPage.ctaTitle}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-            Conheça nossos serviços ou entre em contato para discutir o seu projeto.
+            {t.aboutPage.ctaText}
           </p>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <StarBorder
@@ -366,7 +344,7 @@ export default function SobrePage() {
               thickness={3}
               className="teste-cta-star"
             >
-              Fale conosco
+              {t.aboutPage.ctaPrimary}
             </StarBorder>
             <a
               href="/#servicos"
@@ -384,7 +362,7 @@ export default function SobrePage() {
                 transition: 'all 0.3s ease',
               }}
             >
-              Ver serviços
+              {t.aboutPage.ctaSecondary}
             </a>
           </div>
         </FadeIn>

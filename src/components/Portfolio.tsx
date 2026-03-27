@@ -3,33 +3,7 @@
 import { motion } from 'motion/react';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
-
-const projects = [
-  {
-    image: '/images/portfolio/portobatel.webp',
-    title: 'Porto Batel',
-    tags: ['Identidade de Marca', 'Web Design'],
-    tagColors: ['#0071e3', '#34c759'],
-  },
-  {
-    image: '/images/portfolio/jaksbroco.webp',
-    title: 'Broco Alvim Consultoria',
-    tags: ['Identidade de Marca'],
-    accentColor: '#0071e3',
-  },
-  {
-    image: '/images/portfolio/angeli.webp',
-    title: 'Restaurante Angeli',
-    tags: ['Identidade de Marca'],
-    accentColor: '#0071e3',
-  },
-  {
-    image: '/images/portfolio/f7inc.webp',
-    title: 'F7 Inc.',
-    tags: ['Identidade de Marca'],
-    accentColor: '#0071e3',
-  },
-];
+import { useTranslation } from '@/i18n/LanguageContext';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 60 },
@@ -41,6 +15,35 @@ const cardVariants = {
 };
 
 export default function Portfolio() {
+  const { t } = useTranslation();
+
+  const projects = [
+    {
+      image: '/images/portfolio/portobatel.webp',
+      title: 'Porto Batel',
+      tags: [t.portfolio.tags.brandIdentity, t.portfolio.tags.webDesign],
+      tagColors: ['#0071e3', '#34c759'],
+    },
+    {
+      image: '/images/portfolio/jaksbroco.webp',
+      title: 'Broco Alvim Consultoria',
+      tags: [t.portfolio.tags.brandIdentity],
+      accentColor: '#0071e3',
+    },
+    {
+      image: '/images/portfolio/angeli.webp',
+      title: 'Restaurante Angeli',
+      tags: [t.portfolio.tags.brandIdentity],
+      accentColor: '#0071e3',
+    },
+    {
+      image: '/images/portfolio/f7inc.webp',
+      title: 'F7 Inc.',
+      tags: [t.portfolio.tags.brandIdentity],
+      accentColor: '#0071e3',
+    },
+  ];
+
   return (
     <section
       id="projetos"
@@ -58,17 +61,17 @@ export default function Portfolio() {
             className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]"
             style={{ marginBottom: '1rem' }}
           >
-            Portfólio
+            {t.portfolio.label}
           </p>
           <BlurText
-            text="Projetos que transformaram marcas"
+            text={t.portfolio.heading}
             className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.03em] text-white justify-center"
             delay={60}
             animateBy="words"
             direction="bottom"
           />
           <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
-            Conheça alguns dos trabalhos que entregamos para nossos clientes.
+            {t.portfolio.subtitle}
           </p>
         </FadeIn>
 

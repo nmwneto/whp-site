@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import ClickSparkWrapper from "@/components/ClickSparkWrapper";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const urbanist = Urbanist({
@@ -24,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={urbanist.variable}>
       <body className="antialiased">
-        <ClickSparkWrapper>
-          {children}
-        </ClickSparkWrapper>
+        <Providers>
+          <ClickSparkWrapper>
+            {children}
+          </ClickSparkWrapper>
+        </Providers>
         <Analytics />
       </body>
     </html>

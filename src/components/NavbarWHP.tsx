@@ -15,26 +15,21 @@ import {
 import { cn } from '@/lib/utils';
 import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-
-const navigationData = [
-  { title: 'Home', href: '/' },
-  { title: 'Serviços', href: '/#servicos' },
-  { title: 'Projetos', href: '/#projetos' },
-  { title: 'Sobre', href: '/sobre' },
-  { title: 'Contato', href: '/contato' },
-];
-
-const servicesLinks = [
-  { title: 'Identidade de Marca', href: '/servicos/identidade-de-marca', color: '#0071e3' },
-  { title: 'Web Design & Dev', href: '/servicos/web-design-e-dev', color: '#34c759' },
-  { title: 'SEO & Conteúdo', href: '/servicos/seo-e-conteudo', color: '#ff9f0a' },
-  { title: 'Social Media & Performance', href: '/servicos/social-media-e-performance', color: '#bf5af2' },
-  { title: 'Projetos Personalizados', href: '/servicos/projetos-personalizados', color: '#ff375f' },
-];
+import { useTranslation } from '@/i18n/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 function ServicesDropdown({ href }: { href: string }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const servicesLinks = [
+    { title: t.nav.serviceLinks[0], href: '/servicos/identidade-de-marca', color: '#0071e3' },
+    { title: t.nav.serviceLinks[1], href: '/servicos/web-design-e-dev', color: '#34c759' },
+    { title: t.nav.serviceLinks[2], href: '/servicos/seo-e-conteudo', color: '#ff9f0a' },
+    { title: t.nav.serviceLinks[3], href: '/servicos/social-media-e-performance', color: '#bf5af2' },
+    { title: t.nav.serviceLinks[4], href: '/servicos/projetos-personalizados', color: '#ff375f' },
+  ];
 
   const handleEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -63,7 +58,7 @@ function ServicesDropdown({ href }: { href: string }) {
           cursor: 'pointer',
         }}
       >
-        Serviços
+        {t.nav.services}
         <ChevronDown
           size={14}
           style={{
@@ -96,7 +91,7 @@ function ServicesDropdown({ href }: { href: string }) {
           >
             {servicesLinks.map((service) => (
               <a
-                key={service.title}
+                key={service.href}
                 href={service.href}
                 style={{
                   display: 'flex',
@@ -139,8 +134,25 @@ function ServicesDropdown({ href }: { href: string }) {
 }
 
 export default function NavbarWHP() {
+  const { t } = useTranslation();
   const [sticky, setSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigationData = [
+    { title: t.nav.home, href: '/' },
+    { title: t.nav.services, href: '/#servicos' },
+    { title: t.nav.projects, href: '/#projetos' },
+    { title: t.nav.about, href: '/sobre' },
+    { title: t.nav.contact, href: '/contato' },
+  ];
+
+  const servicesLinks = [
+    { title: t.nav.serviceLinks[0], href: '/servicos/identidade-de-marca', color: '#0071e3' },
+    { title: t.nav.serviceLinks[1], href: '/servicos/web-design-e-dev', color: '#34c759' },
+    { title: t.nav.serviceLinks[2], href: '/servicos/seo-e-conteudo', color: '#ff9f0a' },
+    { title: t.nav.serviceLinks[3], href: '/servicos/social-media-e-performance', color: '#bf5af2' },
+    { title: t.nav.serviceLinks[4], href: '/servicos/projetos-personalizados', color: '#ff375f' },
+  ];
 
   const handleScroll = useCallback(() => {
     setSticky(window.scrollY >= 50);
@@ -203,7 +215,7 @@ export default function NavbarWHP() {
               style={{ background: 'rgba(255,255,255,0.04)' }}
             >
               {navigationData.map((item) =>
-                item.title === 'Serviços' ? (
+                item.title === t.nav.services ? (
                   <ServicesDropdown key={item.title} href={item.href} />
                 ) : (
                   <NavigationMenuItem key={item.title}>
@@ -231,6 +243,9 @@ export default function NavbarWHP() {
             </NavigationMenuList>
           </NavigationMenu>
 
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
           {/* CTA */}
           <a
             href="/contato"
@@ -255,7 +270,7 @@ export default function NavbarWHP() {
               e.currentTarget.style.background = 'linear-gradient(135deg, #bf5af2, transparent)';
             }}
           >
-            Iniciar projeto
+            {t.nav.startProject}
             <ArrowUpRight size={14} />
           </a>
 
@@ -281,6 +296,9 @@ export default function NavbarWHP() {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
+                <DropdownMenuItem className="cursor-pointer justify-center" style={{ padding: '0.5rem' }}>
+                  <LanguageSwitcher />
+                </DropdownMenuItem>
                 {navigationData.map((item) => (
                   <DropdownMenuItem key={item.title} className="cursor-pointer">
                     <a
@@ -294,10 +312,10 @@ export default function NavbarWHP() {
                 ))}
                 <div style={{ padding: '0.375rem 0', margin: '0.25rem 0.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                   <p style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '0.375rem 0.5rem' }}>
-                    Serviços
+                    {t.nav.services}
                   </p>
                   {servicesLinks.map((service) => (
-                    <DropdownMenuItem key={service.title} className="cursor-pointer">
+                    <DropdownMenuItem key={service.href} className="cursor-pointer">
                       <a
                         href={service.href}
                         className="w-full text-sm font-medium"

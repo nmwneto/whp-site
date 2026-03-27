@@ -1,21 +1,7 @@
 'use client';
 
 import FadeIn from '@/components/FadeIn';
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Serviços', href: '/#servicos' },
-  { label: 'Projetos', href: '/#projetos' },
-  { label: 'Sobre', href: '/sobre' },
-  { label: 'Contato', href: '/contato' },
-];
-
-const services = [
-  'Identidade de Marca',
-  'Web Design & Dev',
-  'SEO & Performance',
-  'Social Media',
-];
+import { useTranslation } from '@/i18n/LanguageContext';
 
 const socials = [
   {
@@ -62,6 +48,16 @@ const socials = [
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { label: t.nav.home, href: '/' },
+    { label: t.nav.services, href: '/#servicos' },
+    { label: t.nav.projects, href: '/#projetos' },
+    { label: t.nav.about, href: '/sobre' },
+    { label: t.nav.contact, href: '/contato' },
+  ];
+
   return (
     <footer
       style={{
@@ -95,8 +91,7 @@ export default function Footer() {
                 maxWidth: '260px',
               }}
             >
-              Estratégia, design e tecnologia para marcas que querem crescer e se
-              destacar no mercado digital.
+              {t.footer.brand}
             </p>
 
             {/* Social icons */}
@@ -155,7 +150,7 @@ export default function Footer() {
                 marginBottom: '1.25rem',
               }}
             >
-              Navegação
+              {t.footer.navTitle}
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {navLinks.map((link) => (
@@ -191,10 +186,10 @@ export default function Footer() {
                 marginBottom: '1.25rem',
               }}
             >
-              Serviços
+              {t.footer.servicesTitle}
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {services.map((s) => (
+              {t.footer.servicesList.map((s: string) => (
                 <li key={s}>
                   <span
                     style={{
@@ -222,7 +217,7 @@ export default function Footer() {
                 marginBottom: '1.25rem',
               }}
             >
-              Contato
+              {t.footer.contactTitle}
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <li>
@@ -267,7 +262,7 @@ export default function Footer() {
                     color: 'rgba(255,255,255,0.35)',
                   }}
                 >
-                  Brasil & Internacional
+                  {t.footer.location}
                 </span>
               </li>
             </ul>
@@ -297,7 +292,7 @@ export default function Footer() {
               color: 'rgba(255,255,255,0.25)',
             }}
           >
-            &copy; {new Date().getFullYear()} WHP — We Have a Plan. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} {t.footer.copyright}
           </p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <a
@@ -312,7 +307,7 @@ export default function Footer() {
               onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}
             >
-              Política de Privacidade
+              {t.footer.privacy}
             </a>
             <a
               href="#"
@@ -326,7 +321,7 @@ export default function Footer() {
               onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}
             >
-              Termos de Uso
+              {t.footer.terms}
             </a>
           </div>
         </div>

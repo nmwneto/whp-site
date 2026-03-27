@@ -6,68 +6,43 @@ import SpotlightCard from '@/components/SpotlightCard';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/FadeIn';
+import { useTranslation } from '@/i18n/LanguageContext';
 
-const contactChannels = [
-  {
-    title: 'E-mail',
-    value: 'contato@whp.com',
-    href: 'mailto:contato@whp.com',
-    description: 'Para propostas, orçamentos e parcerias comerciais.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-        <polyline points="22,6 12,13 2,6" />
-      </svg>
-    ),
-    color: '#0071e3',
-    spotlight: 'rgba(0,113,227,0.2)',
-  },
-  {
-    title: 'WhatsApp',
-    value: 'Fale agora',
-    href: 'https://wa.me/',
-    description: 'Atendimento rápido para tirar dúvidas e alinhar projetos.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-      </svg>
-    ),
-    color: '#34c759',
-    spotlight: 'rgba(52,199,89,0.2)',
-  },
-  {
-    title: 'Instagram',
-    value: '@whp.agency',
-    href: 'https://instagram.com/',
-    description: 'Acompanhe nosso trabalho e bastidores dos projetos.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
-    ),
-    color: '#bf5af2',
-    spotlight: 'rgba(191,90,242,0.2)',
-  },
-  {
-    title: 'LinkedIn',
-    value: 'WHP Agency',
-    href: 'https://linkedin.com/',
-    description: 'Conecte-se conosco para networking e oportunidades B2B.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect x="2" y="9" width="4" height="12" />
-        <circle cx="4" cy="4" r="2" />
-      </svg>
-    ),
-    color: '#5AC8FA',
-    spotlight: 'rgba(90,200,250,0.2)',
-  },
+const channelIcons = [
+  (
+    <svg key="email" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
+    </svg>
+  ),
+  (
+    <svg key="whatsapp" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  ),
+  (
+    <svg key="instagram" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  ),
+  (
+    <svg key="linkedin" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  ),
 ];
 
+const channelColors = ['#0071e3', '#34c759', '#bf5af2', '#5AC8FA'];
+const channelSpotlights = ['rgba(0,113,227,0.2)', 'rgba(52,199,89,0.2)', 'rgba(191,90,242,0.2)', 'rgba(90,200,250,0.2)'];
+const channelHrefs = ['mailto:contato@whp.com', 'https://wa.me/', 'https://instagram.com/', 'https://linkedin.com/'];
+const serviceOptionValues = ['identidade', 'web', 'seo', 'social', 'outro'];
+
 export default function ContatoPage() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', service: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -75,6 +50,16 @@ export default function ContatoPage() {
     e.preventDefault();
     setSubmitted(true);
   };
+
+  const contactChannels = t.contactPage.channels.map((ch, i) => ({
+    title: ch.title,
+    value: ch.value,
+    description: ch.desc,
+    href: channelHrefs[i],
+    icon: channelIcons[i],
+    color: channelColors[i],
+    spotlight: channelSpotlights[i],
+  }));
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
@@ -105,17 +90,17 @@ export default function ContatoPage() {
       >
         <FadeIn className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#bf5af2]">
-            Contato
+            {t.contactPage.label}
           </p>
           <BlurText
-            text="Vamos conversar?"
+            text={t.contactPage.heading}
             className="text-[clamp(2.25rem,5.5vw,4rem)] font-bold tracking-[-0.035em] text-white justify-center leading-[1.08]"
             delay={60}
             animateBy="words"
             direction="bottom"
           />
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.125rem', lineHeight: 1.7, maxWidth: 560 }}>
-            Conte-nos sobre o seu projeto. Respondemos em até 24 horas com uma proposta personalizada.
+            {t.contactPage.subtitle}
           </p>
         </FadeIn>
       </section>
@@ -159,10 +144,10 @@ export default function ContatoPage() {
             {/* Form */}
             <div>
               <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '0.5rem' }}>
-                Envie sua mensagem
+                {t.contactPage.formTitle}
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9375rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-                Preencha o formulário abaixo e entraremos em contato o mais breve possível.
+                {t.contactPage.formSubtitle}
               </p>
 
               {submitted ? (
@@ -180,15 +165,15 @@ export default function ContatoPage() {
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-white" style={{ marginBottom: '0.5rem' }}>Mensagem enviada!</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9375rem' }}>Retornaremos em até 24 horas.</p>
+                  <h3 className="text-lg font-semibold text-white" style={{ marginBottom: '0.5rem' }}>{t.contactPage.successTitle}</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9375rem' }}>{t.contactPage.successText}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
                     <input
                       type="text"
-                      placeholder="Seu nome"
+                      placeholder={t.contactPage.placeholderName}
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -198,7 +183,7 @@ export default function ContatoPage() {
                     />
                     <input
                       type="email"
-                      placeholder="Seu e-mail"
+                      placeholder={t.contactPage.placeholderEmail}
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -215,15 +200,13 @@ export default function ContatoPage() {
                     onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(191,90,242,0.4)')}
                     onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
                   >
-                    <option value="" disabled>Selecione o serviço</option>
-                    <option value="identidade">Identidade de Marca</option>
-                    <option value="web">Web Design & Dev</option>
-                    <option value="seo">SEO & Conteúdo</option>
-                    <option value="social">Social Media & Performance</option>
-                    <option value="outro">Outro</option>
+                    <option value="" disabled>{t.contactPage.placeholderService}</option>
+                    {t.contactPage.serviceOptions.map((option, i) => (
+                      <option key={serviceOptionValues[i]} value={serviceOptionValues[i]}>{option}</option>
+                    ))}
                   </select>
                   <textarea
-                    placeholder="Conte-nos sobre o seu projeto..."
+                    placeholder={t.contactPage.placeholderMessage}
                     required
                     rows={5}
                     value={formData.message}
@@ -250,7 +233,7 @@ export default function ContatoPage() {
                     onMouseEnter={(e) => (e.currentTarget.style.background = 'linear-gradient(135deg, #a845d9, rgba(191,90,242,0.1))')}
                     onMouseLeave={(e) => (e.currentTarget.style.background = 'linear-gradient(135deg, #bf5af2, transparent)')}
                   >
-                    Enviar mensagem
+                    {t.contactPage.submit}
                   </button>
                 </form>
               )}
@@ -275,10 +258,10 @@ export default function ContatoPage() {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-white" style={{ marginBottom: '0.5rem' }}>
-                Prefere conversar diretamente?
+                {t.contactPage.whatsappTitle}
               </h3>
               <p style={{ fontSize: '0.875rem', fontWeight: 400, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                Agende uma call de 15 minutos sem compromisso pelo WhatsApp. Respondemos rapidamente.
+                {t.contactPage.whatsappText}
               </p>
               <a
                 href="https://wa.me/"
@@ -311,7 +294,7 @@ export default function ContatoPage() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
-                Abrir WhatsApp
+                {t.contactPage.whatsappBtn}
               </a>
             </div>
           </div>
@@ -328,21 +311,21 @@ export default function ContatoPage() {
             }}
           >
             <div style={{ textAlign: 'center' }}>
-              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.15em] text-[#86868b]" style={{ marginBottom: '0.5rem' }}>Localização</p>
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.15em] text-[#86868b]" style={{ marginBottom: '0.5rem' }}>{t.contactPage.locationLabel}</p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                Brasil & Internacional
+                {t.contactPage.locationValue}
               </p>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.15em] text-[#86868b]" style={{ marginBottom: '0.5rem' }}>Horário</p>
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.15em] text-[#86868b]" style={{ marginBottom: '0.5rem' }}>{t.contactPage.hoursLabel}</p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                Seg — Sex, 09:00 — 18:00
+                {t.contactPage.hoursValue}
               </p>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.15em] text-[#86868b]" style={{ marginBottom: '0.5rem' }}>Tempo de resposta</p>
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.15em] text-[#86868b]" style={{ marginBottom: '0.5rem' }}>{t.contactPage.responseLabel}</p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                Até 24 horas úteis
+                {t.contactPage.responseValue}
               </p>
             </div>
           </div>

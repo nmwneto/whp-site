@@ -3,12 +3,11 @@
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
+import { useTranslation } from '@/i18n/LanguageContext';
 
-const teamMembers = [
+const teamMembersData = [
   {
     name: 'Nelson Mozart',
-    role: 'Designer Multidisciplinar',
-    bio: 'Lidera a visão criativa e estratégica de cada projeto, unindo branding, UI/UX e direção de arte.',
     image: '/images/team/nelson.webp',
     accentColor: '#0071e3',
     spotlightColor: 'rgba(0, 113, 227, 0.25)',
@@ -16,8 +15,6 @@ const teamMembers = [
   },
   {
     name: 'Braian C. Gomes',
-    role: 'Designer de Produto',
-    bio: 'Especialista em experiência do usuário e design de produto com foco em usabilidade e conversão.',
     image: '/images/team/braian.webp',
     accentColor: '#34c759',
     spotlightColor: 'rgba(52, 199, 89, 0.25)',
@@ -25,8 +22,6 @@ const teamMembers = [
   },
   {
     name: 'Jean Vialli',
-    role: 'Especialista em SEO',
-    bio: 'Conecta marcas ao público certo com estratégias de conteúdo e otimização orientadas a dados.',
     image: '/images/team/jean.webp',
     accentColor: '#ff9f0a',
     spotlightColor: 'rgba(255, 159, 10, 0.25)',
@@ -34,8 +29,6 @@ const teamMembers = [
   },
   {
     name: 'Gabriel Mattiolli',
-    role: 'Engenheiro de IA',
-    bio: 'Desenvolve soluções inteligentes com inteligência artificial aplicada a automação, dados e performance.',
     image: '/images/team/gabriel.webp',
     accentColor: '#bf5af2',
     spotlightColor: 'rgba(191, 90, 242, 0.25)',
@@ -43,8 +36,6 @@ const teamMembers = [
   },
   {
     name: 'Lucas Zanatta',
-    role: 'Engenheiro de Negócios',
-    bio: 'Estrutura modelos de negócio e estratégias comerciais que conectam a visão criativa aos resultados de mercado.',
     image: '/images/team/zanatta.webp',
     accentColor: '#5AC8FA',
     spotlightColor: 'rgba(90, 200, 250, 0.25)',
@@ -52,8 +43,6 @@ const teamMembers = [
   },
   {
     name: 'João Balzer',
-    role: 'Engenheiro de Dados',
-    bio: 'Transforma dados em insights acionáveis com pipelines robustos, analytics e inteligência orientada a resultados.',
     image: '/images/team/balzer.webp',
     accentColor: '#ff375f',
     spotlightColor: 'rgba(255, 55, 95, 0.25)',
@@ -62,6 +51,14 @@ const teamMembers = [
 ];
 
 export default function Team() {
+  const { t } = useTranslation();
+
+  const teamMembers = teamMembersData.map((member, i) => ({
+    ...member,
+    role: t.team.roles[i],
+    bio: t.team.bios[i],
+  }));
+
   return (
     <section
       id="sobre"
@@ -75,18 +72,17 @@ export default function Team() {
           className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]"
           style={{ marginBottom: '1rem' }}
         >
-          Quem faz acontecer
+          {t.team.label}
         </p>
         <BlurText
-          text="Sobre o time"
+          text={t.team.heading}
           className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.03em] text-white justify-center"
           delay={60}
           animateBy="words"
           direction="bottom"
         />
         <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
-          Uma equipa multidisciplinar unida por um objetivo: transformar marcas
-          em referência através de design e tecnologia.
+          {t.team.subtitle}
         </p>
       </FadeIn>
 

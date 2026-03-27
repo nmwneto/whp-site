@@ -3,33 +3,25 @@
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
+import { useTranslation } from '@/i18n/LanguageContext';
 
-const testimonials = [
+const testimonialsData = [
   {
-    quote:
-      'A WHP transformou completamente a presença digital da nossa empresa. O resultado superou todas as expectativas — nosso tráfego orgânico triplicou em 4 meses.',
     name: 'Carlos Mendes',
-    role: 'CEO',
     company: 'TechVision',
     image: 'https://i.pravatar.cc/100?img=12',
     accentColor: '#0071e3',
     spotlightColor: 'rgba(0, 113, 227, 0.2)',
   },
   {
-    quote:
-      'Profissionalismo e criatividade em cada detalhe. A identidade visual que criaram para nós transmite exatamente o que somos. Recomendo de olhos fechados.',
     name: 'Ana Oliveira',
-    role: 'Diretora de Marketing',
     company: 'Bloom Studio',
     image: 'https://i.pravatar.cc/100?img=5',
     accentColor: '#bf5af2',
     spotlightColor: 'rgba(191, 90, 242, 0.2)',
   },
   {
-    quote:
-      'O site que a WHP desenvolveu não é apenas bonito — ele converte. Nossas vendas online aumentaram 60% no primeiro trimestre após o lançamento.',
     name: 'Rafael Costa',
-    role: 'Fundador',
     company: 'NovaPay',
     image: 'https://i.pravatar.cc/100?img=33',
     accentColor: '#34c759',
@@ -57,6 +49,14 @@ function StarRating() {
 }
 
 export default function Testimonials() {
+  const { t } = useTranslation();
+
+  const testimonials = testimonialsData.map((item, i) => ({
+    ...item,
+    quote: t.testimonials.items[i].quote,
+    role: t.testimonials.items[i].role,
+  }));
+
   return (
     <section
       style={{
@@ -72,17 +72,17 @@ export default function Testimonials() {
             className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]"
             style={{ marginBottom: '1rem' }}
           >
-            Depoimentos
+            {t.testimonials.label}
           </p>
           <BlurText
-            text="O que nossos clientes dizem"
+            text={t.testimonials.heading}
             className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.03em] text-white justify-center"
             delay={60}
             animateBy="words"
             direction="bottom"
           />
           <p className="mx-auto mt-4 max-w-[520px] text-base font-normal leading-relaxed text-[#86868b]">
-            Resultados reais de marcas que confiaram no nosso trabalho.
+            {t.testimonials.subtitle}
           </p>
         </FadeIn>
 
@@ -92,10 +92,10 @@ export default function Testimonials() {
           className="testimonials-grid mx-auto grid gap-5"
           style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
         >
-          {testimonials.map((t) => (
+          {testimonials.map((item) => (
             <SpotlightCard
-              key={t.name}
-              spotlightColor={t.spotlightColor}
+              key={item.name}
+              spotlightColor={item.spotlightColor}
               className="testimonial-card"
             >
               {/* Quote icon */}
@@ -129,7 +129,7 @@ export default function Testimonials() {
                   marginBottom: '1.5rem',
                 }}
               >
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{item.quote}&rdquo;
               </p>
 
               {/* Author */}
@@ -144,14 +144,14 @@ export default function Testimonials() {
                 }}
               >
                 <img
-                  src={t.image}
-                  alt={t.name}
+                  src={item.image}
+                  alt={item.name}
                   style={{
                     width: 40,
                     height: 40,
                     borderRadius: '50%',
                     objectFit: 'cover',
-                    border: `1.5px solid ${t.accentColor}`,
+                    border: `1.5px solid ${item.accentColor}`,
                   }}
                 />
                 <div>
@@ -163,7 +163,7 @@ export default function Testimonials() {
                       lineHeight: 1.3,
                     }}
                   >
-                    {t.name}
+                    {item.name}
                   </p>
                   <p
                     style={{
@@ -173,7 +173,7 @@ export default function Testimonials() {
                       lineHeight: 1.4,
                     }}
                   >
-                    {t.role}, {t.company}
+                    {item.role}, {item.company}
                   </p>
                 </div>
               </div>
