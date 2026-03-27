@@ -35,11 +35,27 @@ export default function LanguageSwitcher() {
         e.currentTarget.style.color = 'rgba(255,255,255,0.5)';
       }}
     >
-      <span style={{ opacity: locale === 'pt' ? 1 : 0.4, color: locale === 'pt' ? '#fff' : undefined, transition: 'opacity 0.2s ease' }}>
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', opacity: locale === 'pt' ? 1 : 0.4, color: locale === 'pt' ? '#fff' : undefined, transition: 'opacity 0.2s ease' }}>
+        <svg width="14" height="10" viewBox="0 0 640 480" style={{ borderRadius: 2, flexShrink: 0 }}>
+          <rect width="640" height="480" fill="#009b3a" />
+          <polygon points="320,40 600,240 320,440 40,240" fill="#fedf00" />
+          <circle cx="320" cy="240" r="80" fill="#002776" />
+          <path d="M200,240 Q320,180 440,240" fill="none" stroke="#fff" strokeWidth="8" />
+        </svg>
         PT
       </span>
       <span style={{ width: 1, height: 12, background: 'rgba(255,255,255,0.15)' }} />
-      <span style={{ opacity: locale === 'en' ? 1 : 0.4, color: locale === 'en' ? '#fff' : undefined, transition: 'opacity 0.2s ease' }}>
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', opacity: locale === 'en' ? 1 : 0.4, color: locale === 'en' ? '#fff' : undefined, transition: 'opacity 0.2s ease' }}>
+        <svg width="14" height="10" viewBox="0 0 640 480" style={{ borderRadius: 2, flexShrink: 0 }}>
+          <rect width="640" height="480" fill="#bd3d44" />
+          <rect y="37" width="640" height="37" fill="#fff" />
+          <rect y="111" width="640" height="37" fill="#fff" />
+          <rect y="185" width="640" height="37" fill="#fff" />
+          <rect y="259" width="640" height="37" fill="#fff" />
+          <rect y="333" width="640" height="37" fill="#fff" />
+          <rect y="407" width="640" height="37" fill="#fff" />
+          <rect width="260" height="259" fill="#192f5d" />
+        </svg>
         EN
       </span>
     </button>
