@@ -7,77 +7,46 @@ import FadeIn from '@/components/FadeIn';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
+import { useTranslation } from '@/i18n/LanguageContext';
 
 const ACCENT = '#bf5af2';
 
-const deliverables = [
-  {
-    title: 'Estratégia de Conteúdo Social',
-    description: 'Planejamento de conteúdo alinhado ao posicionamento da marca, com calendário editorial e pilares temáticos.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Design de Posts & Stories',
-    description: 'Criação de peças visuais com identidade consistente para feed, stories, reels e carrosséis.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <polyline points="21 15 16 10 5 21" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Gestão de Comunidade',
-    description: 'Monitoramento e interação com a audiência, respondendo comentários e mensagens de forma estratégica.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Tráfego Pago (Ads)',
-    description: 'Campanhas no Meta Ads e Google Ads com segmentação precisa, criativos otimizados e gestão de orçamento.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Análise de Métricas',
-    description: 'Relatórios detalhados com KPIs de alcance, engajamento, conversões e ROI de cada canal e campanha.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-        <path d="M22 12A10 10 0 0 0 12 2v10z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Growth & Otimização',
-    description: 'Testes A/B, otimização de criativos e ajustes contínuos baseados em dados para maximizar resultados.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-        <polyline points="17 6 23 6 23 12" />
-      </svg>
-    ),
-  },
+const ICONS = [
+  <svg key="0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="2" />
+  </svg>,
+  <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+    <circle cx="8.5" cy="8.5" r="1.5" />
+    <polyline points="21 15 16 10 5 21" />
+  </svg>,
+  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>,
+  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="12" y1="1" x2="12" y2="23" />
+    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+  </svg>,
+  <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+    <path d="M22 12A10 10 0 0 0 12 2v10z" />
+  </svg>,
+  <svg key="5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+    <polyline points="17 6 23 6 23 12" />
+  </svg>,
 ];
 
 export default function SocialMediaPerformancePage() {
+  const { t } = useTranslation();
+  const sp = t.servicePages.socialMedia;
+  const common = t.servicePages.common;
+
   return (
     <>
       <NavbarWHP />
@@ -108,7 +77,7 @@ export default function SocialMediaPerformancePage() {
             onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}
           >
             <ArrowLeft size={16} />
-            Voltar ao início
+            {common.backToHome}
           </a>
 
           <div
@@ -130,17 +99,17 @@ export default function SocialMediaPerformancePage() {
           </div>
 
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
-            Serviço
+            {common.serviceLabel}
           </p>
           <BlurText
-            text="Social Media & Performance"
+            text={sp.title}
             className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.03em] text-white justify-center leading-[1.1]"
             delay={60}
             animateBy="words"
             direction="bottom"
           />
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.125rem', lineHeight: 1.7, maxWidth: 600 }}>
-            Gestão estratégica de redes sociais com tráfego pago e análise de performance para crescimento real da sua marca.
+            {sp.subtitle}
           </p>
         </FadeIn>
       </section>
@@ -156,14 +125,14 @@ export default function SocialMediaPerformancePage() {
         <div className="about-grid mx-auto max-w-[900px]" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
           <div>
             <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '1rem' }}>
-              Por que investir em social media?
+              {sp.aboutTitle}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-              As redes sociais são o principal ponto de contato entre marcas e consumidores. Uma presença estratégica constrói comunidade, gera demanda e transforma seguidores em clientes fiéis.
+              {sp.aboutDesc}
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {['Presença consistente nas plataformas certas', 'Conteúdo que engaja e converte', 'Campanhas pagas com ROI comprovado', 'Decisões baseadas em dados reais'].map((item) => (
+            {sp.aboutBullets.map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: ACCENT, flexShrink: 0 }} />
                 <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9375rem' }}>{item}</span>
@@ -185,17 +154,17 @@ export default function SocialMediaPerformancePage() {
           <FadeIn>
             <div className="text-center" style={{ marginBottom: '3.5rem' }}>
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-                Entregas
+                {common.deliverablesLabel}
               </p>
               <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-                O que você recebe
+                {common.deliverablesTitle}
               </h2>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <div className="deliverables-grid grid gap-4" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-              {deliverables.map((item) => (
+              {sp.deliverables.map((item, i) => (
                 <SpotlightCard
                   key={item.title}
                   spotlightColor="rgba(191,90,242,0.2)"
@@ -205,13 +174,13 @@ export default function SocialMediaPerformancePage() {
                     className="services-card__icon"
                     style={{ color: ACCENT }}
                   >
-                    {item.icon}
+                    {ICONS[i]}
                   </div>
                   <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">
-                    {item.description}
+                    {item.desc}
                   </p>
                 </SpotlightCard>
               ))}
@@ -231,23 +200,18 @@ export default function SocialMediaPerformancePage() {
         <div className="mx-auto max-w-[800px]">
           <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#86868b]" style={{ marginBottom: '1rem' }}>
-              Processo
+              {common.processLabel}
             </p>
             <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-[-0.03em] text-white">
-              Como trabalhamos
+              {common.processTitle}
             </h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-            {[
-              { step: '01', title: 'Diagnóstico', desc: 'Análise da presença atual, concorrentes, público-alvo e oportunidades em cada plataforma.' },
-              { step: '02', title: 'Estratégia', desc: 'Definição de pilares de conteúdo, tom de voz, calendário editorial e objetivos mensuráveis.' },
-              { step: '03', title: 'Criação & Gestão', desc: 'Produção de conteúdo, gerenciamento de publicações e interação com a comunidade.' },
-              { step: '04', title: 'Performance & Growth', desc: 'Campanhas pagas, análise de métricas, testes A/B e otimização contínua para crescimento.' },
-            ].map((item) => (
-              <div key={item.step} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
+            {sp.process.map((item, i) => (
+              <div key={item.title} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
                 <span style={{ color: ACCENT, fontSize: '0.875rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums', flexShrink: 0, paddingTop: 2 }}>
-                  {item.step}
+                  {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold text-white" style={{ marginBottom: '0.5rem' }}>{item.title}</h3>
@@ -269,10 +233,10 @@ export default function SocialMediaPerformancePage() {
       >
         <FadeIn className="mx-auto max-w-[600px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
           <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-[-0.03em] text-white leading-[1.15]">
-            Pronto para crescer nas redes?
+            {sp.ctaTitle}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-            Vamos criar uma estratégia de social media que gera resultados mensuráveis.
+            {sp.ctaSubtitle}
           </p>
           <StarBorder
             as="a"
@@ -282,7 +246,7 @@ export default function SocialMediaPerformancePage() {
             thickness={3}
             className="teste-cta-star cta-purple"
           >
-            Iniciar projeto
+            {common.startProject}
           </StarBorder>
         </FadeIn>
       </section>

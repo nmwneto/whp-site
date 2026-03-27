@@ -187,6 +187,134 @@ export const translations: Record<Locale, Translations> = {
       responseLabel: 'Tempo de resposta',
       responseValue: 'Até 24 horas úteis',
     },
+
+    // Service pages
+    servicePages: {
+      common: {
+        backToHome: 'Voltar ao início',
+        serviceLabel: 'Serviço',
+        deliverablesLabel: 'Entregas',
+        deliverablesTitle: 'O que você recebe',
+        processLabel: 'Processo',
+        processTitle: 'Como trabalhamos',
+        startProject: 'Iniciar projeto',
+      },
+      brandIdentity: {
+        title: 'Identidade de Marca',
+        subtitle: 'Criamos identidades visuais memoráveis que traduzem a essência da sua marca em cada ponto de contato — do digital ao impresso.',
+        aboutTitle: 'Por que investir em identidade visual?',
+        aboutDesc: 'Uma identidade visual forte é o alicerce de qualquer marca de sucesso. Ela cria reconhecimento instantâneo, transmite profissionalismo e diferencia sua empresa da concorrência.',
+        aboutBullets: ['Reconhecimento imediato no mercado', 'Consistência em todos os canais', 'Confiança e credibilidade para o cliente', 'Diferenciação da concorrência'],
+        deliverables: [
+          { title: 'Logotipo & Variações', desc: 'Criação do logo principal com versões horizontal, vertical, monocromática e ícone isolado para diferentes aplicações.' },
+          { title: 'Paleta de Cores', desc: 'Definição de cores primárias, secundárias e de apoio com códigos HEX, RGB e CMYK para uso digital e impresso.' },
+          { title: 'Tipografia', desc: 'Seleção de fontes para heading e body, com hierarquia tipográfica completa e regras de uso.' },
+          { title: 'Brand Guidelines', desc: 'Manual de marca digital com todas as regras de aplicação, espaçamentos, usos incorretos e exemplos práticos.' },
+          { title: 'Papelaria & Aplicações', desc: 'Cartão de visita, papel timbrado, assinatura de e-mail e templates para apresentações.' },
+          { title: 'Social Media Kit', desc: 'Templates para posts, stories e capas de perfil adaptados à identidade visual da marca.' },
+        ],
+        process: [
+          { title: 'Imersão', desc: 'Entendemos o negócio, público-alvo, concorrentes e os valores que a marca precisa comunicar.' },
+          { title: 'Conceituação', desc: 'Desenvolvemos moodboards, referências visuais e direções criativas para aprovação.' },
+          { title: 'Design', desc: 'Criamos o logo, paleta, tipografia e todos os elementos visuais da identidade.' },
+          { title: 'Entrega', desc: 'Finalizamos com o brand guide completo e todos os arquivos em formatos digitais e impressos.' },
+        ],
+        ctaTitle: 'Pronto para criar sua identidade?',
+        ctaSubtitle: 'Vamos conversar sobre a sua marca e criar algo único juntos.',
+      },
+      webDesign: {
+        title: 'Web Design & Dev',
+        subtitle: 'Projetamos e desenvolvemos sites de alta performance com design único, código limpo e tecnologia de ponta.',
+        aboutTitle: 'Por que um site profissional importa?',
+        aboutDesc: 'Seu site é o cartão de visitas digital da sua marca. Um site rápido, bonito e bem estruturado gera confiança, atrai clientes e converte visitantes em oportunidades reais de negócio.',
+        aboutBullets: ['Carregamento ultrarrápido (< 2s)', 'Design que converte visitantes em clientes', 'SEO técnico desde o primeiro dia', 'Código escalável e de fácil manutenção'],
+        deliverables: [
+          { title: 'Design UI/UX', desc: 'Interfaces intuitivas e visualmente impactantes, projetadas com foco na experiência do usuário e conversão.' },
+          { title: 'Desenvolvimento Front-end', desc: 'Código limpo e performático com React, Next.js e tecnologias modernas que garantem velocidade e qualidade.' },
+          { title: 'Responsividade Total', desc: 'Sites que funcionam perfeitamente em todos os dispositivos — desktop, tablet e mobile.' },
+          { title: 'CMS & Painel Admin', desc: 'Integração com sistemas de gerenciamento de conteúdo para que você edite seu site com autonomia.' },
+          { title: 'Performance & SEO Técnico', desc: 'Otimização de velocidade, Core Web Vitals, meta tags e estrutura semântica para ranquear no Google.' },
+          { title: 'Deploy & Hospedagem', desc: 'Publicação em infraestrutura moderna com CDN global, SSL, CI/CD e monitoramento contínuo.' },
+        ],
+        process: [
+          { title: 'Discovery', desc: 'Entendemos os objetivos do projeto, público-alvo e requisitos técnicos e visuais.' },
+          { title: 'Design', desc: 'Criamos wireframes e layouts de alta fidelidade no Figma com foco em UX e conversão.' },
+          { title: 'Desenvolvimento', desc: 'Codificamos com tecnologias modernas, garantindo performance, acessibilidade e SEO.' },
+          { title: 'Testes & Launch', desc: 'QA rigoroso em todos os dispositivos, otimização final e deploy em produção.' },
+        ],
+        ctaTitle: 'Pronto para criar seu site?',
+        ctaSubtitle: 'Vamos desenvolver uma presença digital que gera resultados reais.',
+      },
+      seoContent: {
+        title: 'SEO & Conteúdo',
+        subtitle: 'Estratégias de SEO e conteúdo que colocam sua marca nas primeiras posições do Google e geram tráfego qualificado.',
+        aboutTitle: 'Por que SEO e conteúdo são essenciais?',
+        aboutDesc: 'O tráfego orgânico é o canal mais sustentável e escalável de aquisição de clientes. Um bom SEO combinado com conteúdo estratégico cria uma máquina de crescimento previsível para o seu negócio.',
+        aboutBullets: ['Tráfego orgânico sustentável e escalável', 'Redução do custo de aquisição de clientes', 'Autoridade e confiança para sua marca', 'Resultados comprovados mês a mês'],
+        deliverables: [
+          { title: 'Auditoria SEO Completa', desc: 'Análise técnica profunda do site: crawlability, indexação, velocidade, Core Web Vitals e estrutura de URLs.' },
+          { title: 'Pesquisa de Palavras-chave', desc: 'Mapeamento de termos estratégicos com volume de busca, dificuldade e intenção para orientar todo o conteúdo.' },
+          { title: 'SEO On-page', desc: 'Otimização de títulos, meta descriptions, headings, imagens, schema markup e estrutura semântica de cada página.' },
+          { title: 'Estratégia de Conteúdo', desc: 'Planejamento editorial com calendário de publicações, temas, formatos e objetivos de cada conteúdo.' },
+          { title: 'Produção de Conteúdo', desc: 'Textos otimizados para SEO com foco em E-E-A-T: experiência, expertise, autoridade e confiabilidade.' },
+          { title: 'Relatórios & Monitoramento', desc: 'Dashboards com métricas de tráfego, posições, conversões e evolução mês a mês com insights acionáveis.' },
+        ],
+        process: [
+          { title: 'Auditoria', desc: 'Diagnóstico completo do estado atual do SEO e conteúdo do site com análise competitiva.' },
+          { title: 'Estratégia', desc: 'Definição de palavras-chave, calendário editorial e priorização de ações por impacto.' },
+          { title: 'Execução', desc: 'Otimizações técnicas, produção de conteúdo e implementação das melhorias on-page e off-page.' },
+          { title: 'Análise & Iteração', desc: 'Monitoramento de resultados, relatórios mensais e ajustes contínuos na estratégia.' },
+        ],
+        ctaTitle: 'Pronto para dominar o Google?',
+        ctaSubtitle: 'Vamos criar uma estratégia de SEO que gera resultados reais e mensuráveis.',
+      },
+      socialMedia: {
+        title: 'Social Media & Performance',
+        subtitle: 'Gestão estratégica de redes sociais com tráfego pago e análise de performance para crescimento real da sua marca.',
+        aboutTitle: 'Por que investir em social media?',
+        aboutDesc: 'As redes sociais são o principal ponto de contato entre marcas e consumidores. Uma presença estratégica constrói comunidade, gera demanda e transforma seguidores em clientes fiéis.',
+        aboutBullets: ['Presença consistente nas plataformas certas', 'Conteúdo que engaja e converte', 'Campanhas pagas com ROI comprovado', 'Decisões baseadas em dados reais'],
+        deliverables: [
+          { title: 'Estratégia de Conteúdo Social', desc: 'Planejamento de conteúdo alinhado ao posicionamento da marca, com calendário editorial e pilares temáticos.' },
+          { title: 'Design de Posts & Stories', desc: 'Criação de peças visuais com identidade consistente para feed, stories, reels e carrosséis.' },
+          { title: 'Gestão de Comunidade', desc: 'Monitoramento e interação com a audiência, respondendo comentários e mensagens de forma estratégica.' },
+          { title: 'Tráfego Pago (Ads)', desc: 'Campanhas no Meta Ads e Google Ads com segmentação precisa, criativos otimizados e gestão de orçamento.' },
+          { title: 'Análise de Métricas', desc: 'Relatórios detalhados com KPIs de alcance, engajamento, conversões e ROI de cada canal e campanha.' },
+          { title: 'Growth & Otimização', desc: 'Testes A/B, otimização de criativos e ajustes contínuos baseados em dados para maximizar resultados.' },
+        ],
+        process: [
+          { title: 'Diagnóstico', desc: 'Análise da presença atual, concorrentes, público-alvo e oportunidades em cada plataforma.' },
+          { title: 'Estratégia', desc: 'Definição de pilares de conteúdo, tom de voz, calendário editorial e objetivos mensuráveis.' },
+          { title: 'Criação & Gestão', desc: 'Produção de conteúdo, gerenciamento de publicações e interação com a comunidade.' },
+          { title: 'Performance & Growth', desc: 'Campanhas pagas, análise de métricas, testes A/B e otimização contínua para crescimento.' },
+        ],
+        ctaTitle: 'Pronto para crescer nas redes?',
+        ctaSubtitle: 'Vamos criar uma estratégia de social media que gera resultados mensuráveis.',
+      },
+      customProjects: {
+        title: 'Projetos Personalizados',
+        subtitle: 'Soluções sob medida que combinam design, tecnologia e estratégia para resolver desafios únicos do seu negócio.',
+        aboutTitle: 'Por que um projeto personalizado?',
+        aboutDesc: 'Nem todo desafio se encaixa em uma caixa pronta. Projetos personalizados são ideais quando sua empresa precisa de uma solução que conecte múltiplas disciplinas — do branding à automação, do design ao código.',
+        aboutBullets: ['Escopo adaptado à sua realidade', 'Equipe multidisciplinar dedicada', 'Entregas incrementais com feedback', 'Orçamento flexível e transparente'],
+        deliverables: [
+          { title: 'Consultoria Estratégica', desc: 'Análise profunda do seu negócio para identificar oportunidades e definir o escopo ideal do projeto.' },
+          { title: 'Prototipagem Rápida', desc: 'Criação de protótipos interativos para validar conceitos antes do desenvolvimento completo.' },
+          { title: 'Design & Desenvolvimento', desc: 'Execução integrada de design e código, com entregas incrementais e feedback contínuo.' },
+          { title: 'Integrações & APIs', desc: 'Conexão com ferramentas e plataformas externas: CRM, ERPs, gateways de pagamento e automações.' },
+          { title: 'Automação & IA', desc: 'Implementação de chatbots, fluxos automatizados e inteligência artificial aplicada ao negócio.' },
+          { title: 'Suporte & Evolução', desc: 'Acompanhamento pós-entrega com suporte técnico, melhorias contínuas e evolução do produto.' },
+        ],
+        process: [
+          { title: 'Discovery', desc: 'Mapeamos as necessidades, objetivos e restrições do projeto em workshops colaborativos.' },
+          { title: 'Planejamento', desc: 'Definimos o escopo, tecnologias, cronograma e milestones com entregas claras.' },
+          { title: 'Execução', desc: 'Desenvolvemos em sprints com entregas incrementais, feedback contínuo e ajustes em tempo real.' },
+          { title: 'Lançamento & Suporte', desc: 'Deploy assistido, monitoramento pós-launch e suporte contínuo para evolução do produto.' },
+        ],
+        ctaTitle: 'Tem um projeto em mente?',
+        ctaSubtitle: 'Conte-nos sobre o seu desafio e vamos construir a solução ideal juntos.',
+      },
+    },
   },
 
   en: {
@@ -375,6 +503,134 @@ export const translations: Record<Locale, Translations> = {
       responseLabel: 'Response time',
       responseValue: 'Within 24 business hours',
     },
+
+    // Service pages
+    servicePages: {
+      common: {
+        backToHome: 'Back to home',
+        serviceLabel: 'Service',
+        deliverablesLabel: 'Deliverables',
+        deliverablesTitle: 'What you get',
+        processLabel: 'Process',
+        processTitle: 'How we work',
+        startProject: 'Start a project',
+      },
+      brandIdentity: {
+        title: 'Brand Identity',
+        subtitle: 'We create memorable visual identities that translate your brand\'s essence into every touchpoint — from digital to print.',
+        aboutTitle: 'Why invest in visual identity?',
+        aboutDesc: 'A strong visual identity is the foundation of any successful brand. It creates instant recognition, conveys professionalism and differentiates your company from the competition.',
+        aboutBullets: ['Instant market recognition', 'Consistency across all channels', 'Trust and credibility for the client', 'Differentiation from competitors'],
+        deliverables: [
+          { title: 'Logo & Variations', desc: 'Main logo creation with horizontal, vertical, monochrome and isolated icon versions for different applications.' },
+          { title: 'Color Palette', desc: 'Definition of primary, secondary and support colors with HEX, RGB and CMYK codes for digital and print use.' },
+          { title: 'Typography', desc: 'Font selection for heading and body, with complete typographic hierarchy and usage rules.' },
+          { title: 'Brand Guidelines', desc: 'Digital brand manual with all application rules, spacing, incorrect uses and practical examples.' },
+          { title: 'Stationery & Applications', desc: 'Business cards, letterhead, email signature and presentation templates.' },
+          { title: 'Social Media Kit', desc: 'Templates for posts, stories and profile covers adapted to the brand\'s visual identity.' },
+        ],
+        process: [
+          { title: 'Immersion', desc: 'We understand the business, target audience, competitors and the values the brand needs to communicate.' },
+          { title: 'Conceptualization', desc: 'We develop moodboards, visual references and creative directions for approval.' },
+          { title: 'Design', desc: 'We create the logo, palette, typography and all visual elements of the identity.' },
+          { title: 'Delivery', desc: 'We finalize with the complete brand guide and all files in digital and print formats.' },
+        ],
+        ctaTitle: 'Ready to create your identity?',
+        ctaSubtitle: 'Let\'s talk about your brand and create something unique together.',
+      },
+      webDesign: {
+        title: 'Web Design & Dev',
+        subtitle: 'We design and develop high-performance websites with unique design, clean code and cutting-edge technology.',
+        aboutTitle: 'Why does a professional website matter?',
+        aboutDesc: 'Your website is your brand\'s digital business card. A fast, beautiful and well-structured site builds trust, attracts clients and converts visitors into real business opportunities.',
+        aboutBullets: ['Ultra-fast loading (< 2s)', 'Design that converts visitors into clients', 'Technical SEO from day one', 'Scalable and easy-to-maintain code'],
+        deliverables: [
+          { title: 'UI/UX Design', desc: 'Intuitive and visually impactful interfaces, designed with a focus on user experience and conversion.' },
+          { title: 'Front-end Development', desc: 'Clean and performant code with React, Next.js and modern technologies that ensure speed and quality.' },
+          { title: 'Full Responsiveness', desc: 'Websites that work perfectly on all devices — desktop, tablet and mobile.' },
+          { title: 'CMS & Admin Panel', desc: 'Integration with content management systems so you can edit your site with autonomy.' },
+          { title: 'Performance & Technical SEO', desc: 'Speed optimization, Core Web Vitals, meta tags and semantic structure to rank on Google.' },
+          { title: 'Deploy & Hosting', desc: 'Publication on modern infrastructure with global CDN, SSL, CI/CD and continuous monitoring.' },
+        ],
+        process: [
+          { title: 'Discovery', desc: 'We understand the project goals, target audience and technical and visual requirements.' },
+          { title: 'Design', desc: 'We create wireframes and high-fidelity layouts in Figma with a focus on UX and conversion.' },
+          { title: 'Development', desc: 'We code with modern technologies, ensuring performance, accessibility and SEO.' },
+          { title: 'Testing & Launch', desc: 'Rigorous QA on all devices, final optimization and production deploy.' },
+        ],
+        ctaTitle: 'Ready to create your website?',
+        ctaSubtitle: 'Let\'s develop a digital presence that drives real results.',
+      },
+      seoContent: {
+        title: 'SEO & Content',
+        subtitle: 'SEO and content strategies that put your brand at the top of Google and generate qualified traffic.',
+        aboutTitle: 'Why are SEO and content essential?',
+        aboutDesc: 'Organic traffic is the most sustainable and scalable customer acquisition channel. Good SEO combined with strategic content creates a predictable growth engine for your business.',
+        aboutBullets: ['Sustainable and scalable organic traffic', 'Reduced customer acquisition cost', 'Authority and trust for your brand', 'Proven results month after month'],
+        deliverables: [
+          { title: 'Complete SEO Audit', desc: 'Deep technical analysis of the site: crawlability, indexing, speed, Core Web Vitals and URL structure.' },
+          { title: 'Keyword Research', desc: 'Mapping of strategic terms with search volume, difficulty and intent to guide all content.' },
+          { title: 'On-page SEO', desc: 'Optimization of titles, meta descriptions, headings, images, schema markup and semantic structure of each page.' },
+          { title: 'Content Strategy', desc: 'Editorial planning with publication calendar, themes, formats and objectives for each content.' },
+          { title: 'Content Production', desc: 'SEO-optimized texts focused on E-E-A-T: experience, expertise, authoritativeness and trustworthiness.' },
+          { title: 'Reports & Monitoring', desc: 'Dashboards with traffic metrics, rankings, conversions and month-over-month evolution with actionable insights.' },
+        ],
+        process: [
+          { title: 'Audit', desc: 'Complete diagnosis of the current state of SEO and site content with competitive analysis.' },
+          { title: 'Strategy', desc: 'Definition of keywords, editorial calendar and prioritization of actions by impact.' },
+          { title: 'Execution', desc: 'Technical optimizations, content production and implementation of on-page and off-page improvements.' },
+          { title: 'Analysis & Iteration', desc: 'Results monitoring, monthly reports and continuous strategy adjustments.' },
+        ],
+        ctaTitle: 'Ready to dominate Google?',
+        ctaSubtitle: 'Let\'s create an SEO strategy that drives real, measurable results.',
+      },
+      socialMedia: {
+        title: 'Social Media & Performance',
+        subtitle: 'Strategic social media management with paid traffic and performance analysis for real brand growth.',
+        aboutTitle: 'Why invest in social media?',
+        aboutDesc: 'Social media is the main point of contact between brands and consumers. A strategic presence builds community, generates demand and turns followers into loyal customers.',
+        aboutBullets: ['Consistent presence on the right platforms', 'Content that engages and converts', 'Paid campaigns with proven ROI', 'Decisions based on real data'],
+        deliverables: [
+          { title: 'Social Content Strategy', desc: 'Content planning aligned with brand positioning, with editorial calendar and thematic pillars.' },
+          { title: 'Post & Stories Design', desc: 'Creation of visual pieces with consistent identity for feed, stories, reels and carousels.' },
+          { title: 'Community Management', desc: 'Audience monitoring and interaction, responding to comments and messages strategically.' },
+          { title: 'Paid Traffic (Ads)', desc: 'Meta Ads and Google Ads campaigns with precise targeting, optimized creatives and budget management.' },
+          { title: 'Metrics Analysis', desc: 'Detailed reports with reach, engagement, conversion and ROI KPIs for each channel and campaign.' },
+          { title: 'Growth & Optimization', desc: 'A/B testing, creative optimization and continuous data-driven adjustments to maximize results.' },
+        ],
+        process: [
+          { title: 'Diagnosis', desc: 'Analysis of current presence, competitors, target audience and opportunities on each platform.' },
+          { title: 'Strategy', desc: 'Definition of content pillars, tone of voice, editorial calendar and measurable objectives.' },
+          { title: 'Creation & Management', desc: 'Content production, publication management and community interaction.' },
+          { title: 'Performance & Growth', desc: 'Paid campaigns, metrics analysis, A/B testing and continuous optimization for growth.' },
+        ],
+        ctaTitle: 'Ready to grow on social media?',
+        ctaSubtitle: 'Let\'s create a social media strategy that drives measurable results.',
+      },
+      customProjects: {
+        title: 'Custom Projects',
+        subtitle: 'Tailored solutions that combine design, technology and strategy to solve unique challenges in your business.',
+        aboutTitle: 'Why a custom project?',
+        aboutDesc: 'Not every challenge fits a ready-made box. Custom projects are ideal when your company needs a solution that connects multiple disciplines — from branding to automation, from design to code.',
+        aboutBullets: ['Scope adapted to your reality', 'Dedicated multidisciplinary team', 'Incremental deliveries with feedback', 'Flexible and transparent budget'],
+        deliverables: [
+          { title: 'Strategic Consulting', desc: 'Deep analysis of your business to identify opportunities and define the ideal project scope.' },
+          { title: 'Rapid Prototyping', desc: 'Creation of interactive prototypes to validate concepts before full development.' },
+          { title: 'Design & Development', desc: 'Integrated design and code execution, with incremental deliveries and continuous feedback.' },
+          { title: 'Integrations & APIs', desc: 'Connection with external tools and platforms: CRM, ERPs, payment gateways and automations.' },
+          { title: 'Automation & AI', desc: 'Implementation of chatbots, automated workflows and artificial intelligence applied to business.' },
+          { title: 'Support & Evolution', desc: 'Post-delivery follow-up with technical support, continuous improvements and product evolution.' },
+        ],
+        process: [
+          { title: 'Discovery', desc: 'We map needs, objectives and project constraints in collaborative workshops.' },
+          { title: 'Planning', desc: 'We define scope, technologies, timeline and milestones with clear deliveries.' },
+          { title: 'Execution', desc: 'We develop in sprints with incremental deliveries, continuous feedback and real-time adjustments.' },
+          { title: 'Launch & Support', desc: 'Assisted deploy, post-launch monitoring and continuous support for product evolution.' },
+        ],
+        ctaTitle: 'Have a project in mind?',
+        ctaSubtitle: 'Tell us about your challenge and let\'s build the ideal solution together.',
+      },
+    },
   },
 };
 
@@ -492,4 +748,32 @@ export interface Translations {
     responseLabel: string;
     responseValue: string;
   };
+  servicePages: {
+    common: {
+      backToHome: string;
+      serviceLabel: string;
+      deliverablesLabel: string;
+      deliverablesTitle: string;
+      processLabel: string;
+      processTitle: string;
+      startProject: string;
+    };
+    brandIdentity: ServicePageTranslation;
+    webDesign: ServicePageTranslation;
+    seoContent: ServicePageTranslation;
+    socialMedia: ServicePageTranslation;
+    customProjects: ServicePageTranslation;
+  };
+}
+
+interface ServicePageTranslation {
+  title: string;
+  subtitle: string;
+  aboutTitle: string;
+  aboutDesc: string;
+  aboutBullets: string[];
+  deliverables: { title: string; desc: string }[];
+  process: { title: string; desc: string }[];
+  ctaTitle: string;
+  ctaSubtitle: string;
 }
