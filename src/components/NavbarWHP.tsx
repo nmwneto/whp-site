@@ -194,19 +194,22 @@ export default function NavbarWHP() {
               : 'border-transparent bg-transparent py-1'
           )}
         >
-          {/* Logo */}
-          <a
-            href="/"
-            style={{
-              fontFamily: "'Kangge', sans-serif",
-              fontSize: '1.75rem',
-              color: '#fff',
-              textDecoration: 'none',
-              letterSpacing: '0.02em',
-            }}
-          >
-            whp
-          </a>
+          {/* Logo + Language Switcher */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <a
+              href="/"
+              style={{
+                fontFamily: "'Kangge', sans-serif",
+                fontSize: '1.75rem',
+                color: '#fff',
+                textDecoration: 'none',
+                letterSpacing: '0.02em',
+              }}
+            >
+              whp
+            </a>
+            <LanguageSwitcher />
+          </div>
 
           {/* Desktop nav */}
           <NavigationMenu className="max-lg:hidden">
@@ -242,9 +245,6 @@ export default function NavbarWHP() {
               )}
             </NavigationMenuList>
           </NavigationMenu>
-
-          {/* Language Switcher */}
-          <LanguageSwitcher />
 
           {/* CTA */}
           <a
