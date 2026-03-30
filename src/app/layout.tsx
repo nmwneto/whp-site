@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import ClickSparkWrapper from "@/components/ClickSparkWrapper";
 import Providers from "@/components/Providers";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({
           </ClickSparkWrapper>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
