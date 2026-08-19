@@ -4,6 +4,7 @@ import StarBorder from '@/components/StarBorder';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
 import { useTranslation } from '@/i18n/LanguageContext';
+import { WHATSAPP_URL } from '@/lib/contact';
 
 export default function CtaBanner() {
   const { t } = useTranslation();
@@ -51,7 +52,7 @@ export default function CtaBanner() {
             {t.ctaBanner.cta}
           </StarBorder>
           <a
-            href="https://wa.me/"
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{

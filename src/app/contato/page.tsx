@@ -1,78 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import BlurText from '@/components/BlurText';
-import SpotlightCard from '@/components/SpotlightCard';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/FadeIn';
 import { useTranslation } from '@/i18n/LanguageContext';
-
-const channelIcons = [
-  (
-    <svg key="email" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  ),
-  (
-    <svg key="whatsapp" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-    </svg>
-  ),
-  (
-    <svg key="instagram" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  ),
-  (
-    <svg key="linkedin" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  ),
-];
-
-const channelColors = ['#0071e3', '#34c759', '#bf5af2', '#5AC8FA'];
-const channelSpotlights = ['rgba(0,113,227,0.2)', 'rgba(52,199,89,0.2)', 'rgba(191,90,242,0.2)', 'rgba(90,200,250,0.2)'];
-const channelHrefs = ['mailto:contato@whp.com', 'https://wa.me/', 'https://instagram.com/', 'https://linkedin.com/'];
-const serviceOptionValues = ['identidade', 'web', 'seo', 'social', 'outro'];
+import { WHATSAPP_URL } from '@/lib/contact';
 
 export default function ContatoPage() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({ name: '', email: '', service: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const contactChannels = t.contactPage.channels.map((ch, i) => ({
-    title: ch.title,
-    value: ch.value,
-    description: ch.desc,
-    href: channelHrefs[i],
-    icon: channelIcons[i],
-    color: channelColors[i],
-    spotlight: channelSpotlights[i],
-  }));
-
-  const inputStyle: React.CSSProperties = {
-    width: '100%',
-    padding: '0.875rem 1rem',
-    background: '#111',
-    border: '1px solid rgba(255,255,255,0.08)',
-    borderRadius: '0.75rem',
-    color: '#fff',
-    fontSize: '0.9375rem',
-    fontFamily: 'inherit',
-    outline: 'none',
-    transition: 'border-color 0.3s ease',
-  };
 
   return (
     <>
@@ -81,7 +17,7 @@ export default function ContatoPage() {
       {/* Hero */}
       <section
         style={{
-          background: 'radial-gradient(ellipse 900px 500px at 50% 60%, rgba(191,90,242,0.1), transparent), #0a0a0a',
+          background: 'radial-gradient(ellipse 900px 500px at 50% 60%, rgba(52,199,89,0.1), transparent), #0a0a0a',
           padding: '10rem 4rem 6rem',
           minHeight: '60vh',
           display: 'flex',
@@ -89,7 +25,7 @@ export default function ContatoPage() {
         }}
       >
         <FadeIn className="mx-auto max-w-[800px] text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#bf5af2]">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[#34c759]">
             {t.contactPage.label}
           </p>
           <BlurText
@@ -105,198 +41,70 @@ export default function ContatoPage() {
         </FadeIn>
       </section>
 
-      {/* Contact channels */}
+      {/* WhatsApp — canal único */}
       <section
         style={{
-          background: '#0a0a0a',
+          background: 'radial-gradient(ellipse 800px 500px at 50% 40%, rgba(52,199,89,0.08), transparent), #0a0a0a',
           padding: '3rem 4rem 5rem',
-        }}
-      >
-        <FadeIn className="mx-auto max-w-[1100px]">
-          <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            {contactChannels.map((ch) => (
-              <a key={ch.title} href={ch.href} target={ch.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
-                <SpotlightCard spotlightColor={ch.spotlight} className="services-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' as const }}>
-                  <div className="services-card__icon" style={{ color: ch.color }}>
-                    {ch.icon}
-                  </div>
-                  <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-white">{ch.title}</h3>
-                  <p style={{ fontSize: '0.8125rem', fontWeight: 500, color: ch.color, marginTop: '0.25rem' }}>{ch.value}</p>
-                  <p className="mt-2 text-sm font-normal leading-relaxed text-[#86868b]">{ch.description}</p>
-                </SpotlightCard>
-              </a>
-            ))}
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* Form + Info */}
-      <section
-        style={{
-          background: 'radial-gradient(ellipse 800px 500px at 30% 40%, rgba(191,90,242,0.07), transparent), radial-gradient(ellipse 700px 400px at 80% 70%, rgba(0,113,227,0.06), transparent), #0a0a0a',
-          padding: '5rem 4rem',
           borderTop: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <FadeIn className="mx-auto max-w-[1100px]">
-          {/* Form + WhatsApp CTA side by side */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '3rem', alignItems: 'start' }}>
-            {/* Form */}
-            <div>
-              <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '0.5rem' }}>
-                {t.contactPage.formTitle}
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9375rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-                {t.contactPage.formSubtitle}
-              </p>
-
-              {submitted ? (
-                <div
-                  style={{
-                    padding: '2.5rem',
-                    background: '#111',
-                    border: '1px solid rgba(52,199,89,0.2)',
-                    borderRadius: '1.25rem',
-                    textAlign: 'center',
-                  }}
-                >
-                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(52,199,89,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', color: '#34c759' }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold text-white" style={{ marginBottom: '0.5rem' }}>{t.contactPage.successTitle}</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9375rem' }}>{t.contactPage.successText}</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
-                    <input
-                      type="text"
-                      placeholder={t.contactPage.placeholderName}
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(191,90,242,0.4)')}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-                    />
-                    <input
-                      type="email"
-                      placeholder={t.contactPage.placeholderEmail}
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(191,90,242,0.4)')}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-                    />
-                  </div>
-                  <select
-                    required
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    style={{ ...inputStyle, color: formData.service ? '#fff' : 'rgba(255,255,255,0.4)', appearance: 'none' as const }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(191,90,242,0.4)')}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-                  >
-                    <option value="" disabled>{t.contactPage.placeholderService}</option>
-                    {t.contactPage.serviceOptions.map((option, i) => (
-                      <option key={serviceOptionValues[i]} value={serviceOptionValues[i]}>{option}</option>
-                    ))}
-                  </select>
-                  <textarea
-                    placeholder={t.contactPage.placeholderMessage}
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    style={{ ...inputStyle, resize: 'vertical' as const, minHeight: '120px' }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(191,90,242,0.4)')}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-                  />
-                  <button
-                    type="submit"
-                    style={{
-                      padding: '0.875rem 2.5rem',
-                      background: 'linear-gradient(135deg, #bf5af2, transparent)',
-                      color: '#fff',
-                      fontWeight: 600,
-                      fontSize: '0.9375rem',
-                      fontFamily: 'inherit',
-                      borderRadius: '100px',
-                      border: 'none',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      alignSelf: 'flex-start',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.background = 'linear-gradient(135deg, #a845d9, rgba(191,90,242,0.1))')}
-                    onMouseLeave={(e) => (e.currentTarget.style.background = 'linear-gradient(135deg, #bf5af2, transparent)')}
-                  >
-                    {t.contactPage.submit}
-                  </button>
-                </form>
-              )}
+        <FadeIn className="mx-auto max-w-[640px]">
+          <div
+            style={{
+              padding: '3rem 2.5rem',
+              background: '#111',
+              border: '1px solid rgba(52,199,89,0.15)',
+              borderRadius: '1.5rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+            }}
+          >
+            <div style={{ width: 64, height: 64, borderRadius: 16, background: 'rgba(52,199,89,0.1)', border: '1px solid rgba(52,199,89,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#34c759', marginBottom: '1.5rem' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
             </div>
-
-            {/* WhatsApp CTA */}
-            <div
+            <h2 className="text-[1.75rem] font-bold tracking-[-0.03em] text-white" style={{ marginBottom: '0.75rem' }}>
+              {t.contactPage.whatsappTitle}
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7, maxWidth: 440, marginBottom: '2rem' }}>
+              {t.contactPage.whatsappText}
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
-                padding: '2rem',
-                background: '#111',
-                border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '1.25rem',
-                marginTop: '4.25rem',
-                display: 'flex',
-                flexDirection: 'column',
-                height: 'fit-content',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.625rem',
+                padding: '1rem 2.5rem',
+                background: '#25D366',
+                borderRadius: '100px',
+                color: '#fff',
+                fontSize: '1rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                boxShadow: '0 8px 24px rgba(37,211,102,0.3)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(37,211,102,0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(37,211,102,0.3)';
               }}
             >
-              <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(52,199,89,0.1)', border: '1px solid rgba(52,199,89,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#34c759', marginBottom: '1.25rem' }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-white" style={{ marginBottom: '0.5rem' }}>
-                {t.contactPage.whatsappTitle}
-              </h3>
-              <p style={{ fontSize: '0.875rem', fontWeight: 400, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                {t.contactPage.whatsappText}
-              </p>
-              <a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.5rem',
-                  background: 'rgba(52,199,89,0.1)',
-                  border: '1px solid rgba(52,199,89,0.2)',
-                  borderRadius: '100px',
-                  color: '#34c759',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  transition: 'all 0.3s ease',
-                  alignSelf: 'flex-start',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(52,199,89,0.15)';
-                  e.currentTarget.style.borderColor = 'rgba(52,199,89,0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(52,199,89,0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(52,199,89,0.2)';
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                </svg>
-                {t.contactPage.whatsappBtn}
-              </a>
-            </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.002-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              {t.contactPage.whatsappBtn}
+            </a>
           </div>
 
           {/* Info row centered below */}

@@ -2,43 +2,12 @@
 
 import FadeIn from '@/components/FadeIn';
 import { useTranslation } from '@/i18n/LanguageContext';
+import { WHATSAPP_URL } from '@/lib/contact';
 
 const socials = [
   {
-    label: 'Instagram',
-    url: 'https://instagram.com/',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
-    ),
-  },
-  {
-    label: 'LinkedIn',
-    url: 'https://linkedin.com/',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect x="2" y="9" width="4" height="12" />
-        <circle cx="4" cy="4" r="2" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Behance',
-    url: 'https://behance.net/',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-        <circle cx="12" cy="12" r="3" />
-      </svg>
-    ),
-  },
-  {
     label: 'WhatsApp',
-    url: 'https://wa.me/',
+    url: WHATSAPP_URL,
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
@@ -222,23 +191,7 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <li>
                 <a
-                  href="mailto:contato@whp.com"
-                  style={{
-                    fontSize: '0.875rem',
-                    fontWeight: 400,
-                    color: 'rgba(255,255,255,0.35)',
-                    textDecoration: 'none',
-                    transition: 'color 0.25s ease',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
-                >
-                  contato@whp.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

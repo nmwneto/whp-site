@@ -1,0 +1,19 @@
+# WHP — We Have a Plan
+
+> Agência de marketing digital que une estratégia, design e tecnologia para fazer marcas crescerem. A WHP entrega identidade visual, sites de alta performance, SEO, conteúdo, social media e projetos personalizados, do branding ao código.
+
+O atendimento e os orçamentos são feitos exclusivamente pelo WhatsApp: https://wa.me/5541996778867
+
+## Institucional
+
+- [Home](https://whpdigital.com/): Visão geral da agência, serviços, projetos e time.
+- [Sobre](https://whpdigital.com/sobre): Missão, visão, história e time da WHP — agência de design e tecnologia que transforma marcas em referências digitais.
+- [Contato](https://whpdigital.com/contato): Fale com a WHP pelo WhatsApp e receba uma proposta personalizada.
+
+## Serviços
+
+- [Identidade de Marca](https://whpdigital.com/servicos/identidade-de-marca): Criação de identidade visual completa — logotipo e variações, paleta de cores, tipografia, brand guidelines, papelaria e social media kit.
+- [Web Design & Desenvolvimento](https://whpdigital.com/servicos/web-design-e-dev): Sites de alta performance com design UI/UX único e código limpo em React e Next.js, com responsividade total, SEO técnico e deploy em infraestrutura moderna.
+- [SEO & Conteúdo](https://whpdigital.com/servicos/seo-e-conteudo): Auditoria SEO, pesquisa de palavras-chave, SEO on-page, estratégia e produção de conteúdo para gerar tráfego orgânico qualificado e mensurável.
+- [Social Media & Performance](https://whpdigital.com/servicos/social-media-e-performance): Gestão estratégica de redes sociais, design de posts, gestão de comunidade, tráfego pago (Meta Ads e Google Ads) e análise de métricas com ROI comprovado.
+- [Projetos Personalizados](https://whpdigital.com/servicos/projetos-personalizados): Soluções sob medida que combinam consultoria estratégica, prototipagem, design, desenvolvimento, integrações, APIs, automação e IA para desafios únicos do negócio.

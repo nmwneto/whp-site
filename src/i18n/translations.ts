@@ -162,10 +162,7 @@ export const translations: Record<Locale, Translations> = {
       heading: 'Vamos conversar?',
       subtitle: 'Conte-nos sobre o seu projeto. Respondemos em até 24 horas com uma proposta personalizada.',
       channels: [
-        { title: 'E-mail', value: 'contato@whp.com', desc: 'Para propostas, orçamentos e parcerias comerciais.' },
         { title: 'WhatsApp', value: 'Fale agora', desc: 'Atendimento rápido para tirar dúvidas e alinhar projetos.' },
-        { title: 'Instagram', value: '@whp.agency', desc: 'Acompanhe nosso trabalho e bastidores dos projetos.' },
-        { title: 'LinkedIn', value: 'WHP Agency', desc: 'Conecte-se conosco para networking e oportunidades B2B.' },
       ],
       formTitle: 'Envie sua mensagem',
       formSubtitle: 'Preencha o formulário abaixo e entraremos em contato o mais breve possível.',
@@ -478,10 +475,7 @@ export const translations: Record<Locale, Translations> = {
       heading: 'Let\'s talk?',
       subtitle: 'Tell us about your project. We respond within 24 hours with a personalized proposal.',
       channels: [
-        { title: 'E-mail', value: 'contato@whp.com', desc: 'For proposals, quotes and business partnerships.' },
         { title: 'WhatsApp', value: 'Chat now', desc: 'Quick support for questions and project alignment.' },
-        { title: 'Instagram', value: '@whp.agency', desc: 'Follow our work and behind-the-scenes of projects.' },
-        { title: 'LinkedIn', value: 'WHP Agency', desc: 'Connect with us for networking and B2B opportunities.' },
       ],
       formTitle: 'Send your message',
       formSubtitle: 'Fill out the form below and we\'ll get back to you as soon as possible.',
