@@ -1,7 +1,7 @@
 # WHP Site — Instruções do Projeto
 
 ## Sobre
-Site institucional da **WHP — We Have a Plan**, agência de design.
+Site institucional da **WHP — We Have a Plan**, agência de marketing digital (design, tecnologia e performance).
 Deploy automático via GitHub → Vercel.
 - **Repo**: github.com/nmwneto/whp-site
 - **Vercel**: deploy automático a cada push na branch `main`
@@ -145,6 +145,13 @@ eslint: { ignoreDuringBuilds: true }     // Warnings de ReactBits
 | CountUp erro TS | Props obrigatórias faltando | Adicionar `onStart` e `onEnd` (ignorado pelo config) |
 
 ## Responsividade
-- **Não implementada ainda** — site é desktop-only
-- Quando implementar: usar CSS classes no globals.css com media queries, NÃO substituir inline styles por classes inexistentes
-- Testar desktop PRIMEIRO antes de aplicar media queries
+- **Implementada** — validada em iPhone 16 Pro (ago/2026)
+- Feita via media queries no `globals.css` (breakpoints `768px`, `640px`, `480px`) — NÃO substituir inline styles por classes inexistentes
+- Ao ajustar mobile: editar as media queries existentes no `globals.css`; testar desktop PRIMEIRO
+
+## Contato & SEO (arquitetura)
+Fonte única da verdade — evitar valores hardcoded espalhados:
+- **WhatsApp**: `src/lib/contact.ts` (`WHATSAPP_NUMBER`, `WHATSAPP_URL`). Contato do site é **exclusivamente WhatsApp** (sem e-mail/formulário/redes da agência). Botão flutuante global: `src/components/WhatsAppFloat.tsx` (no `layout.tsx`).
+- **Metadados**: `src/lib/seo.ts` (`buildMetadata`, `SITE_URL = whpdigital.com`). Como as páginas são `'use client'`, cada rota tem um `layout.tsx` (server component) que exporta `metadata`. Raiz define `title.template` `%s | WHP`, OG e `metadataBase`.
+- **Schema.org**: `src/lib/schema.ts` + `src/components/JsonLd.tsx`. Organization + WebSite globais no `layout.tsx`; Service + BreadcrumbList nos `layout.tsx` de `/servicos/*`.
+- **Indexação**: `src/app/sitemap.ts` e `src/app/robots.ts` (geram `/sitemap.xml` e `/robots.txt`); `public/llms.txt`; `public/og-image.jpg` (1200×630). `/brand` é `noindex`. Search Console verificado via TXT no DNS (gerenciado pela Vercel).
