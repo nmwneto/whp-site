@@ -24,6 +24,7 @@ export default function Footer() {
     { label: t.nav.services, href: '/#servicos' },
     { label: t.nav.projects, href: '/#projetos' },
     { label: t.nav.about, href: '/sobre' },
+    { label: 'Blog', href: '/blog' },
     { label: t.nav.contact, href: '/contato' },
   ];
 

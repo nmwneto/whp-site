@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     // ReactBits (.jsx) sem tipagem TypeScript
     ignoreBuildErrors: true,
   },
+  images: {
+    // imagens do Sanity (CDN)
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
+  },
 };
 
 export default nextConfig;

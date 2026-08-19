@@ -1,12 +1,16 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { WHATSAPP_URL } from '@/lib/contact';
 
 /**
  * Botão flutuante de WhatsApp — fixo no canto inferior direito.
- * Renderizado globalmente no layout, aparece em todas as páginas.
+ * Renderizado globalmente no layout, aparece em todas as páginas (exceto o Studio).
  */
 export default function WhatsAppFloat() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/studio')) return null;
+
   return (
     <a
       href={WHATSAPP_URL}
