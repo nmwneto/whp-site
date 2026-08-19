@@ -5,7 +5,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import ClickSparkWrapper from "@/components/ClickSparkWrapper";
 import Providers from "@/components/Providers";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import JsonLd from "@/components/JsonLd";
 import { SITE_URL, SITE_NAME, DEFAULT_TITLE, OG_IMAGE } from "@/lib/seo";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 import "./globals.css";
 
 const urbanist = Urbanist({
@@ -62,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={urbanist.variable}>
       <body className="antialiased">
+        <JsonLd data={[organizationSchema, websiteSchema]} />
         <Providers>
           <ClickSparkWrapper>
             {children}
