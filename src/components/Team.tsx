@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import SpotlightCard from '@/components/SpotlightCard';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
@@ -107,9 +108,12 @@ export default function Team() {
                 marginBottom: '1.25rem',
               }}
             >
-              <img
+              <Image
                 src={member.image}
                 alt={member.name}
+                width={80}
+                height={80}
+                sizes="80px"
                 style={{
                   width: '100%',
                   height: '100%',

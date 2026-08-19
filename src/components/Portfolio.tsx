@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import BlurText from '@/components/BlurText';
 import FadeIn from '@/components/FadeIn';
@@ -109,13 +110,13 @@ export default function Portfolio() {
                 }}
               >
                 {/* Image */}
-                <div style={{ overflow: 'hidden', aspectRatio: '16/10' }}>
-                  <img
+                <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16/10' }}>
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 550px"
                     style={{
-                      width: '100%',
-                      height: '100%',
                       objectFit: 'cover',
                       display: 'block',
                       transition: 'transform 0.5s ease',
