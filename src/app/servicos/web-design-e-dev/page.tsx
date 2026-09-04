@@ -6,6 +6,7 @@ import SpotlightCard from '@/components/SpotlightCard';
 import FadeIn from '@/components/FadeIn';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
+import ServiceFaq from '@/components/ServiceFaq';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 
@@ -52,6 +53,7 @@ export default function WebDesignDevPage() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -226,6 +228,9 @@ export default function WebDesignDevPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <ServiceFaq service="webDesign" accent={ACCENT} />
+
       {/* CTA */}
       <section
         style={{
@@ -253,6 +258,7 @@ export default function WebDesignDevPage() {
           </StarBorder>
         </FadeIn>
       </section>
+      </main>
 
       <Footer />
     </>

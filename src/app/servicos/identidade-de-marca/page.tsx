@@ -6,6 +6,7 @@ import SpotlightCard from '@/components/SpotlightCard';
 import FadeIn from '@/components/FadeIn';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
+import ServiceFaq from '@/components/ServiceFaq';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 
@@ -58,6 +59,7 @@ export default function IdentidadeDeMarcaPage() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -233,6 +235,9 @@ export default function IdentidadeDeMarcaPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <ServiceFaq service="brandIdentity" accent={ACCENT} />
+
       {/* CTA */}
       <section
         style={{
@@ -260,6 +265,7 @@ export default function IdentidadeDeMarcaPage() {
           </StarBorder>
         </FadeIn>
       </section>
+      </main>
 
       <Footer />
     </>

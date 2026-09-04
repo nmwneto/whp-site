@@ -6,6 +6,7 @@ import SpotlightCard from '@/components/SpotlightCard';
 import FadeIn from '@/components/FadeIn';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
+import ServiceFaq from '@/components/ServiceFaq';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 
@@ -56,6 +57,7 @@ export default function SeoConteudoPage() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -231,6 +233,9 @@ export default function SeoConteudoPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <ServiceFaq service="seoContent" accent={ACCENT} />
+
       {/* CTA */}
       <section
         style={{
@@ -258,6 +263,7 @@ export default function SeoConteudoPage() {
           </StarBorder>
         </FadeIn>
       </section>
+      </main>
 
       <Footer />
     </>

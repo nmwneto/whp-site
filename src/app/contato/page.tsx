@@ -13,6 +13,7 @@ export default function ContatoPage() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -139,6 +140,7 @@ export default function ContatoPage() {
           </div>
         </FadeIn>
       </section>
+      </main>
 
       <Footer />
     </>

@@ -77,6 +77,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <>
       <NavbarWHP />
       <JsonLd data={articleSchema} />
+      <main id="conteudo">
 
       <article style={{ background: '#0a0a0a', padding: '9rem 4rem 5rem' }}>
         <div className="mx-auto max-w-[760px]">
@@ -105,6 +106,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {post.body && <PortableTextBody value={post.body} />}
         </div>
       </article>
+      </main>
 
       <Footer />
     </>

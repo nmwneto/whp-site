@@ -6,6 +6,7 @@ import SpotlightCard from '@/components/SpotlightCard';
 import FadeIn from '@/components/FadeIn';
 import NavbarWHP from '@/components/NavbarWHP';
 import Footer from '@/components/Footer';
+import ServiceFaq from '@/components/ServiceFaq';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 
@@ -50,6 +51,7 @@ export default function SocialMediaPerformancePage() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -223,6 +225,9 @@ export default function SocialMediaPerformancePage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <ServiceFaq service="socialMedia" accent={ACCENT} />
+
       {/* CTA */}
       <section
         style={{
@@ -250,6 +255,7 @@ export default function SocialMediaPerformancePage() {
           </StarBorder>
         </FadeIn>
       </section>
+      </main>
 
       <Footer />
     </>

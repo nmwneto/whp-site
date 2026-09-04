@@ -804,3 +804,74 @@ html, body {
     scroll-snap-align: start;
   }
 }
+
+/* --- FAQ das páginas de serviço (<details> nativo + altura animada via WAAPI) --- */
+.faq-item {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.faq-item:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.faq-item[open] {
+  background: #131313;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.faq-item__summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+/* Remove o triângulo padrão - o "+" faz esse papel. */
+.faq-item__summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item__summary:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.faq-item__marker {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 300;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq-item[open] .faq-item__marker {
+  transform: rotate(45deg);
+}
+/* Enquanto fecha, o atributo `open` ainda existe: gira de volta junto com a altura. */
+.faq-item[open].faq-item--closing .faq-item__marker {
+  transform: rotate(0deg);
+}
+
+/* Wrapper animado: o overflow recorta o texto enquanto a altura interpola. */
+.faq-item__content {
+  overflow: hidden;
+}
+.faq-item__answer {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .faq-item {
+    padding: 1rem 1.125rem;
+  }
+}

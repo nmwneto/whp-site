@@ -21,6 +21,7 @@ export default async function BlogIndex() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -102,6 +103,7 @@ export default async function BlogIndex() {
           )}
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

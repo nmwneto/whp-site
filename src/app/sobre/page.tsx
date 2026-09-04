@@ -107,6 +107,7 @@ export default function SobrePage() {
   return (
     <>
       <NavbarWHP />
+      <main id="conteudo">
 
       {/* Hero */}
       <section
@@ -367,6 +368,7 @@ export default function SobrePage() {
           </div>
         </FadeIn>
       </section>
+      </main>
 
       <Footer />
     </>

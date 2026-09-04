@@ -194,6 +194,8 @@ export const translations: Record<Locale, Translations> = {
         deliverablesTitle: 'O que você recebe',
         processLabel: 'Processo',
         processTitle: 'Como trabalhamos',
+        faqLabel: 'Dúvidas',
+        faqTitle: 'Perguntas frequentes',
         startProject: 'Iniciar projeto',
       },
       brandIdentity: {
@@ -215,6 +217,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Conceituação', desc: 'Desenvolvemos moodboards, referências visuais e direções criativas para aprovação.' },
           { title: 'Design', desc: 'Criamos o logo, paleta, tipografia e todos os elementos visuais da identidade.' },
           { title: 'Entrega', desc: 'Finalizamos com o brand guide completo e todos os arquivos em formatos digitais e impressos.' },
+        ],
+        faq: [
+          { question: 'Quanto tempo leva um projeto de identidade de marca?', answer: 'Em média de 4 a 6 semanas, da imersão à entrega do brand guide. Projetos que incluem papelaria completa e social media kit podem chegar a 8 semanas.' },
+          { question: 'O que exatamente eu recebo ao final?', answer: 'Logotipo e variações, paleta de cores com códigos HEX, RGB e CMYK, tipografia com hierarquia definida, brand guidelines, papelaria e social media kit — em arquivos editáveis e finalizados, para digital e impresso.' },
+          { question: 'Vocês fazem redesign de marcas que já existem?', answer: 'Sim. Começamos por um diagnóstico do que já funciona na marca atual, para preservar o reconhecimento conquistado e modernizar o resto. Pode ser um rebranding completo ou uma evolução gradual da identidade.' },
+          { question: 'A identidade serve para materiais impressos?', answer: 'Sim. Todos os arquivos são entregues em vetor e com as cores convertidas para CMYK, prontos para gráfica, além das versões RGB para uso digital.' },
         ],
         ctaTitle: 'Pronto para criar sua identidade?',
         ctaSubtitle: 'Vamos conversar sobre a sua marca e criar algo único juntos.',
@@ -239,6 +247,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Desenvolvimento', desc: 'Codificamos com tecnologias modernas, garantindo performance, acessibilidade e SEO.' },
           { title: 'Testes & Launch', desc: 'QA rigoroso em todos os dispositivos, otimização final e deploy em produção.' },
         ],
+        faq: [
+          { question: 'Quanto tempo leva para o site ficar no ar?', answer: 'Um site institucional costuma levar de 4 a 8 semanas, do briefing ao deploy. O prazo varia com o número de páginas, as integrações e se a identidade visual já está definida.' },
+          { question: 'Que tecnologias vocês usam?', answer: 'React e Next.js no front-end, CMS headless para o conteúdo e deploy em infraestrutura moderna com CDN global, SSL e CI/CD. Não usamos construtores de página.' },
+          { question: 'Consigo editar o conteúdo do site sozinho depois?', answer: 'Sim. Integramos um CMS com painel administrativo para você editar textos, imagens e publicar conteúdo sem depender de desenvolvedor.' },
+          { question: 'O site já vem otimizado para o Google e para buscadores de IA?', answer: 'Sim. Toda entrega inclui HTML semântico, dados estruturados em Schema.org, Core Web Vitals otimizados, sitemap, robots.txt e llms.txt — o que torna o site legível tanto para o Google quanto para ChatGPT, Perplexity e AI Overviews.' },
+        ],
         ctaTitle: 'Pronto para criar seu site?',
         ctaSubtitle: 'Vamos desenvolver uma presença digital que gera resultados reais.',
       },
@@ -261,6 +275,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Estratégia', desc: 'Definição de palavras-chave, calendário editorial e priorização de ações por impacto.' },
           { title: 'Execução', desc: 'Otimizações técnicas, produção de conteúdo e implementação das melhorias on-page e off-page.' },
           { title: 'Análise & Iteração', desc: 'Monitoramento de resultados, relatórios mensais e ajustes contínuos na estratégia.' },
+        ],
+        faq: [
+          { question: 'Em quanto tempo eu vejo resultado de SEO?', answer: 'As correções técnicas costumam refletir em 4 a 8 semanas. O crescimento consistente de tráfego orgânico normalmente aparece entre o quarto e o sexto mês, porque depende de indexação, autoridade e volume de conteúdo publicado.' },
+          { question: 'Vocês garantem a primeira posição no Google?', answer: 'Não. Nenhuma agência séria pode garantir posição, porque o ranqueamento depende de fatores fora do nosso controle. Trabalhamos com metas acordadas de tráfego orgânico, palavras-chave posicionadas e conversões.' },
+          { question: 'SEO ainda faz sentido com o crescimento da busca por IA?', answer: 'Sim, mas o formato mudou. Além de ranquear no Google, otimizamos o conteúdo para ser citado em AI Overviews, ChatGPT e Perplexity — o que exige respostas diretas, dados estruturados e acesso liberado aos crawlers de IA.' },
+          { question: 'O serviço inclui a produção do conteúdo?', answer: 'Sim. Cobrimos o ciclo completo: pesquisa de palavras-chave, definição de pauta, redação, revisão, otimização on-page e publicação.' },
         ],
         ctaTitle: 'Pronto para dominar o Google?',
         ctaSubtitle: 'Vamos criar uma estratégia de SEO que gera resultados reais e mensuráveis.',
@@ -285,6 +305,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Criação & Gestão', desc: 'Produção de conteúdo, gerenciamento de publicações e interação com a comunidade.' },
           { title: 'Performance & Growth', desc: 'Campanhas pagas, análise de métricas, testes A/B e otimização contínua para crescimento.' },
         ],
+        faq: [
+          { question: 'Qual o investimento mínimo em mídia paga?', answer: 'A verba de mídia é definida junto com você, a partir do objetivo da campanha e do seu ticket médio, e é sempre separada do valor da gestão. Começamos com um valor de teste para validar criativos e públicos antes de escalar.' },
+          { question: 'Vocês cuidam da gestão e também criam os materiais?', answer: 'Sim. O serviço cobre estratégia, criação dos posts e dos criativos de anúncio, publicação, gestão da comunidade e gestão das campanhas de Meta Ads e Google Ads.' },
+          { question: 'Como vocês medem o resultado?', answer: 'Acompanhamos métricas de negócio — custo por aquisição, ROAS, taxa de conversão e crescimento qualificado de audiência — em relatório mensal, com leitura do que funcionou e o plano do ciclo seguinte.' },
+          { question: 'Preciso contratar social media e tráfego pago juntos?', answer: 'Não, os serviços podem ser contratados separadamente. Juntos rendem mais, porque o conteúdo orgânico alimenta os criativos pagos e os dados de campanha orientam a pauta.' },
+        ],
         ctaTitle: 'Pronto para crescer nas redes?',
         ctaSubtitle: 'Vamos criar uma estratégia de social media que gera resultados mensuráveis.',
       },
@@ -307,6 +333,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Planejamento', desc: 'Definimos o escopo, tecnologias, cronograma e milestones com entregas claras.' },
           { title: 'Execução', desc: 'Desenvolvemos em sprints com entregas incrementais, feedback contínuo e ajustes em tempo real.' },
           { title: 'Lançamento & Suporte', desc: 'Deploy assistido, monitoramento pós-launch e suporte contínuo para evolução do produto.' },
+        ],
+        faq: [
+          { question: 'Que tipo de projeto entra nessa categoria?', answer: 'Tudo que não cabe nos pacotes fechados: plataformas internas, portais de cliente, integrações entre sistemas, automação de processos e aplicações com IA.' },
+          { question: 'Como funciona o orçamento de um projeto sob medida?', answer: 'Começamos por um diagnóstico curto que define escopo, arquitetura e prazos. A partir dele, o projeto é orçado e executado por fases, com entregas testáveis ao final de cada uma.' },
+          { question: 'Vocês dão manutenção depois da entrega?', answer: 'Sim. Oferecemos contrato de evolução e suporte contínuo, com correções, melhorias e acompanhamento da infraestrutura.' },
+          { question: 'Trabalham com integrações e APIs de terceiros?', answer: 'Sim. Integramos CRMs, ERPs, gateways de pagamento, ferramentas de automação e APIs de modelos de IA, sempre com a documentação da integração entregue ao cliente.' },
         ],
         ctaTitle: 'Tem um projeto em mente?',
         ctaSubtitle: 'Conte-nos sobre o seu desafio e vamos construir a solução ideal juntos.',
@@ -507,6 +539,8 @@ export const translations: Record<Locale, Translations> = {
         deliverablesTitle: 'What you get',
         processLabel: 'Process',
         processTitle: 'How we work',
+        faqLabel: 'FAQ',
+        faqTitle: 'Frequently asked questions',
         startProject: 'Start a project',
       },
       brandIdentity: {
@@ -528,6 +562,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Conceptualization', desc: 'We develop moodboards, visual references and creative directions for approval.' },
           { title: 'Design', desc: 'We create the logo, palette, typography and all visual elements of the identity.' },
           { title: 'Delivery', desc: 'We finalize with the complete brand guide and all files in digital and print formats.' },
+        ],
+        faq: [
+          { question: 'How long does a brand identity project take?', answer: 'Typically 4 to 6 weeks, from discovery to the final brand guide. Projects that include full stationery and a social media kit can take up to 8 weeks.' },
+          { question: 'What exactly do I receive at the end?', answer: 'Logo and variations, a color palette with HEX, RGB and CMYK codes, typography with a defined hierarchy, brand guidelines, stationery and a social media kit — in both editable and final files, ready for digital and print.' },
+          { question: 'Do you redesign existing brands?', answer: 'Yes. We start with an audit of what already works in the current brand, so we preserve hard-won recognition and modernize the rest. It can be a full rebrand or a gradual evolution of the identity.' },
+          { question: 'Does the identity work for printed materials?', answer: 'Yes. Every file is delivered in vector format with colors converted to CMYK and print-ready, alongside the RGB versions for digital use.' },
         ],
         ctaTitle: 'Ready to create your identity?',
         ctaSubtitle: 'Let\'s talk about your brand and create something unique together.',
@@ -552,6 +592,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Development', desc: 'We code with modern technologies, ensuring performance, accessibility and SEO.' },
           { title: 'Testing & Launch', desc: 'Rigorous QA on all devices, final optimization and production deploy.' },
         ],
+        faq: [
+          { question: 'How long until the site goes live?', answer: 'A marketing site usually takes 4 to 8 weeks, from briefing to deploy. The timeline depends on the number of pages, the integrations, and whether the visual identity is already defined.' },
+          { question: 'What technologies do you use?', answer: 'React and Next.js on the front end, a headless CMS for content, and deployment on modern infrastructure with a global CDN, SSL and CI/CD. We do not use page builders.' },
+          { question: 'Can I edit the content myself afterwards?', answer: 'Yes. We integrate a CMS with an admin panel so you can edit copy, images and publish content without depending on a developer.' },
+          { question: 'Does the site ship optimized for Google and AI search engines?', answer: 'Yes. Every delivery includes semantic HTML, Schema.org structured data, optimized Core Web Vitals, a sitemap, robots.txt and llms.txt — which makes the site readable by Google as well as by ChatGPT, Perplexity and AI Overviews.' },
+        ],
         ctaTitle: 'Ready to create your website?',
         ctaSubtitle: 'Let\'s develop a digital presence that drives real results.',
       },
@@ -574,6 +620,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Strategy', desc: 'Definition of keywords, editorial calendar and prioritization of actions by impact.' },
           { title: 'Execution', desc: 'Technical optimizations, content production and implementation of on-page and off-page improvements.' },
           { title: 'Analysis & Iteration', desc: 'Results monitoring, monthly reports and continuous strategy adjustments.' },
+        ],
+        faq: [
+          { question: 'How long before I see SEO results?', answer: 'Technical fixes usually show up within 4 to 8 weeks. Consistent organic traffic growth typically appears between month four and month six, since it depends on indexing, authority and how much content has been published.' },
+          { question: 'Do you guarantee the first position on Google?', answer: 'No. No serious agency can guarantee rankings, because they depend on factors outside our control. We work against agreed targets for organic traffic, ranked keywords and conversions.' },
+          { question: 'Does SEO still matter now that AI search is growing?', answer: 'Yes, but the format changed. Beyond ranking on Google, we optimize content to be cited in AI Overviews, ChatGPT and Perplexity — which requires direct answers, structured data and open access for AI crawlers.' },
+          { question: 'Does the service include content production?', answer: 'Yes. We cover the full cycle: keyword research, editorial planning, writing, editing, on-page optimization and publishing.' },
         ],
         ctaTitle: 'Ready to dominate Google?',
         ctaSubtitle: 'Let\'s create an SEO strategy that drives real, measurable results.',
@@ -598,6 +650,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Creation & Management', desc: 'Content production, publication management and community interaction.' },
           { title: 'Performance & Growth', desc: 'Paid campaigns, metrics analysis, A/B testing and continuous optimization for growth.' },
         ],
+        faq: [
+          { question: 'What is the minimum paid media budget?', answer: 'The media budget is defined together with you, based on the campaign goal and your average ticket, and it is always separate from the management fee. We start with a test budget to validate creatives and audiences before scaling.' },
+          { question: 'Do you handle management and also create the assets?', answer: 'Yes. The service covers strategy, post and ad creative production, publishing, community management and running the Meta Ads and Google Ads campaigns.' },
+          { question: 'How do you measure results?', answer: 'We track business metrics — cost per acquisition, ROAS, conversion rate and qualified audience growth — in a monthly report that explains what worked and sets the plan for the next cycle.' },
+          { question: 'Do I have to hire social media and paid traffic together?', answer: 'No, they can be hired separately. They perform better together, because organic content feeds the paid creatives and campaign data guides the editorial plan.' },
+        ],
         ctaTitle: 'Ready to grow on social media?',
         ctaSubtitle: 'Let\'s create a social media strategy that drives measurable results.',
       },
@@ -620,6 +678,12 @@ export const translations: Record<Locale, Translations> = {
           { title: 'Planning', desc: 'We define scope, technologies, timeline and milestones with clear deliveries.' },
           { title: 'Execution', desc: 'We develop in sprints with incremental deliveries, continuous feedback and real-time adjustments.' },
           { title: 'Launch & Support', desc: 'Assisted deploy, post-launch monitoring and continuous support for product evolution.' },
+        ],
+        faq: [
+          { question: 'What kind of project fits this category?', answer: 'Anything that does not fit the standard packages: internal platforms, client portals, system integrations, process automation and AI-powered applications.' },
+          { question: 'How does pricing work for a custom project?', answer: 'We start with a short discovery phase that defines scope, architecture and timeline. From there the project is quoted and executed in phases, with testable deliverables at the end of each one.' },
+          { question: 'Do you provide maintenance after delivery?', answer: 'Yes. We offer an ongoing support and evolution contract covering fixes, improvements and infrastructure monitoring.' },
+          { question: 'Do you work with third-party integrations and APIs?', answer: 'Yes. We integrate CRMs, ERPs, payment gateways, automation tools and AI model APIs, always handing over documentation for the integration.' },
         ],
         ctaTitle: 'Have a project in mind?',
         ctaSubtitle: 'Tell us about your challenge and let\'s build the ideal solution together.',
@@ -750,6 +814,8 @@ export interface Translations {
       deliverablesTitle: string;
       processLabel: string;
       processTitle: string;
+      faqLabel: string;
+      faqTitle: string;
       startProject: string;
     };
     brandIdentity: ServicePageTranslation;
@@ -768,6 +834,7 @@ interface ServicePageTranslation {
   aboutBullets: string[];
   deliverables: { title: string; desc: string }[];
   process: { title: string; desc: string }[];
+  faq: { question: string; answer: string }[];
   ctaTitle: string;
   ctaSubtitle: string;
 }
